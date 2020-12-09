@@ -1,0 +1,46 @@
+
+
+
+<mat-toolbar color="primary" >
+
+  <div><span class="nav-brand" style="cursor: pointer;margin-right:1rem;">
+       LocalMart</span></div>
+   <button mat-button routerLink="/" fxShow="false" fxShow.gt-sm ><mat-icon>home</mat-icon>Home</button>
+  <input type="text" fxShow="false" class="rounded-pill" fxShow.gt-sm class="form-control" style="margin: 0 5%" >
+  <input type="text" fxHide="false" class="rounded-pill" fxHide.gt-sm class="form-control">
+
+  <!-- This fills the remaining space of the current row -->
+  <!-- <span class="fill-remaining-space"></span> -->
+  <div class="spacer"></div>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <a mat-button>AboutUs</a>
+    <button mat-button routerLink="cart"><mat-icon>shopping_cart</mat-icon>My Cart</button>
+    <a mat-raised-button color="accent" routerLink="auth">SignUp</a>
+
+  </div>
+
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="a menu" fxHide="false" fxHide.gt-sm ml-auto>
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+
+  <button mat-menu-item routerLink="products">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+    </button>
+  <button mat-menu-item routerLink="cart">
+    <mat-icon>shopping_cart</mat-icon>
+    <span>My Cart</span>
+    </button>
+  <button mat-menu-item routerLink="auth">
+    <mat-icon>account_circle</mat-icon>
+    <span>Login</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>contacts</mat-icon>
+    <span>Contact us</span>
+  </button>
+  <div mat-menu-item>
+    <button mat-raised-button color="warn">Log In/Log Out</button>
+  </div>
+</mat-menu>

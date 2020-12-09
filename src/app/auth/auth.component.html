@@ -1,0 +1,26 @@
+<div class="container" >
+  <div class="row">
+    <div class="col-md-12" style="margin:5% 5% 5% 5%">
+      <form (ngSubmit)="onSubmit(f)" ngForm #f="ngForm">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" ngModel email required name="email" id="email"
+          placeholder="ex john@xyz.com"><br>
+
+        <label for="password">Password</label>
+        <input type="text" password required class="form-control" ngModel name="password" id="password"><br>
+
+        <div *ngIf="!userExists">
+          <label for="confirm_password">Confirm Password</label>
+          <input type="text" password required class="form-control" ngModel name="confirm_password"
+            id="confirm_password">
+        </div>
+        <hr>
+        <button mat-button mat-raised-button type="submit"
+          style="margin-right: 1rem;">{{userExists ? 'Login' : 'Sign Up'}}</button>
+        <button mat-button mat-raised-button color="primary" type="button"
+          (click)="onSwitch()">{{userExists ? 'Sign Up' : 'Login'}}</button>
+      </form>
+
+    </div>
+  </div>
+</div>

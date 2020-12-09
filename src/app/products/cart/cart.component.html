@@ -1,0 +1,89 @@
+<div *ngIf="cart_list.length<1;">
+  <div class="row">
+    <div class="col-md-6" style="text-align: center;">
+      <img src="https://moderndogmagazine.com/sites/default/files/images/gallery/images/changestoroutine.jpg"
+        alt="Image not found">
+      <h2>Sorry! Your cart is empty</h2>
+      <button mat-raised-button color="primary" routerLink="/products">Shop something</button>
+    </div>
+    <div class="col-md-6">
+      <div style="margin: 2rem">
+        <h2>The total amount of</h2>
+        <hr>
+        <button class="tn btn-primary btn-block">GO TO CHECKOUT</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="cart_list.length>0;">
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12 col-lg-6">
+      <div *ngFor="let cart of cart_list">
+        <div class="card shadow p-2 mb-2 bg-white rounded link-unstyled">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{{cart.item.imgPath}}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2 class="card-title">{{cart.item.name}}</h2>
+                  </div>
+                  <div class="col-md-4">
+                    <p class="card-text">Price : {{cart.item.price}}</p>
+                  </div>
+                </div>
+                <p>{{cart.item.description}}</p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <button mat-raised-button color="accent" class="btn-block" fxShow="false" fxShow.gt-sm
+                      style="text-align: center;">
+                      <mat-icon>favorite</mat-icon> Add to wishlist
+                    </button>
+                  </div>
+                  <div class="col-md-6">
+                    <button mat-raised-button color="warn" class="btn-block">
+                      <mat-icon>delete</mat-icon> Delete Item
+                    </button>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12 col-lg-6">
+      <div style="margin: 2rem">
+        <h2>The total amount of</h2>
+        <hr>
+        <button class="tn btn-primary btn-block">GO TO CHECKOUT</button>
+        <div class="mb-3">
+          <div class="pt-4">
+
+            <a class="dark-grey-text d-flex justify-content-between" data-toggle="collapse" href="#collapseExample"
+              aria-expanded="false" aria-controls="collapseExample">
+              Add a discount code (optional)
+              <span><i class="fas fa-chevron-down pt-1"></i></span>
+            </a>
+
+            <div class="collapse" id="collapseExample">
+              <div class="mt-3">
+                <div class="md-form md-outline mb-0">
+                  <input type="text" id="discount-code" class="form-control font-weight-light"
+                    placeholder="Enter discount code">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
