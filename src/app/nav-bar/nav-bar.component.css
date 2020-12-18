@@ -1,3 +1,20 @@
-.spacer{
-  flex: 1 1 auto;
+.usermenu{
+  position: fixed;
+  padding-left: 3rem;
+}
+.a{
+  text-decoration: none;
+}
+
+
+/* for small screen */
+.sm-menu{
+  color:white;
+  text-align:center;
+}
+.sm-icon{
+  color:white;
+}
+.sm-menu:hover{
+  background-color: grey;
 }

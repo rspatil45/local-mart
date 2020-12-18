@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../shared/product.service';
 
 @Component({
   selector: 'app-side-panel',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidePanelComponent implements OnInit {
 
-  constructor() { }
-
+  categories = ["grocerry","daily essentials","other","handicraft"]
+  constructor(private proService : ProductService) { }
+  onSetCategory(ctgr: string){
+    this.proService.setCategory(ctgr);
+    //console.log(ctgr);
+  }
   ngOnInit(): void {
   }
 

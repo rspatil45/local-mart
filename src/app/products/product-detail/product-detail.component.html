@@ -2,15 +2,15 @@
   <div class="col-md-2">
     <div style="border-left: 6px solid grey"></div>
   </div>
-  <div class="col-md-11">
-    <img src="{{product.imgPath}}" alt="image not found" style="max-width: 24rem;">
+  <div class="col-md-11" (click)="getAccess()">
+    <img src="{{product.image}}" alt="image not found" style="max-width: 24rem;">
     <hr>
     <h1><strong>{{product.name}}</strong></h1>
-    <p>Price: {{product.price}}</p>
+    <p class="btn btn-light" style="border: blue solid 2px; cursor:none;">Price: {{product.price}}</p>
     <hr>
     <button mat-raised-button color="primary" (click)="onAddtoCart()">Add To Cart</button>
-    <button mat-raised-button color="accent" (click)="onUpdate()">Update</button>
-    <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
+    <button mat-raised-button color="accent" (click)="onUpdate()"[disabled]="!haveAccess" >Update</button>
+    <button mat-raised-button color="warn" (click)="onDelete()" [disabled]="!haveAccess">Delete</button>
 
     <mat-tab-group>
       <mat-tab label="Description"><p>{{product.description}}</p></mat-tab>
@@ -20,6 +20,6 @@
 
 
 
+<app-test1></app-test1>
 
-
-  </div>
+</div>

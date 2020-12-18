@@ -5,8 +5,7 @@ import { ProductEditComponent } from './products/product-edit/product-edit.compo
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { AuthComponent } from './auth/auth.component';
-import { NotAvailableComponent } from './sared/not-available/not-available.component';
-import { Cart } from './shared/cart.model';
+import { Cart } from './shared/models/cart.model';
 import { CartComponent } from './products/cart/cart.component';
 
 const routes: Routes = [
@@ -14,17 +13,21 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent,
     children: [
       { path: '', component: ProductListComponent, pathMatch: 'full'},
-      { path: ':id', component: ProductDetailComponent },
-      { path: 'new', component: ProductEditComponent }
+      { path: 'new', component: ProductEditComponent },
+      { path: ':id', component: ProductDetailComponent }
+
     ]
   },
   { path: 'auth', component: AuthComponent},
   { path: 'cart', component: CartComponent},
   { path: '**', component: ProductsComponent}
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+}

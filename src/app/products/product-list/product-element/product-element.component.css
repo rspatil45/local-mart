@@ -1,0 +1,13 @@
+.main-card{
+  margin-bottom: 1rem;
+  border: 15%;
+}
+.cart-button{
+  border-radius: 25%;
+  color: white;
+}
+.main-card:hover{
+  z-index: 50;
+  transform: scale(1.05);
+
+}

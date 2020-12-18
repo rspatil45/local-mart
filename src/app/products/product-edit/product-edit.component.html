@@ -1,4 +1,24 @@
+<form ngForm (ngSubmit)="onSubmit(f)" ngForm #f="ngForm">
 
-<h2>
-  <p>product-edit works!</p>
-</h2>
+  <label for="item_name"><strong>Name</strong></label>
+  <input type="text" class="form-control" name="item_name" id="item_name" ngModel>
+
+  <br>
+  <label for="image"><strong>Image url</strong></label>
+  <input type="text" name="image" id="image" ngModel class="form-control">
+
+  <br>
+  <label for="description"><strong>Description</strong></label>
+  <input type="text" name="description" id="description" ngModel class="form-control">
+
+  <br>
+  <label for="price"><strong>Price</strong></label>
+  <input type="text" name="price" id="price" ngModel class="form-control">
+
+  <br>
+  <label for="quantiry"><strong>Quantity</strong></label>
+  <input type="text" name="quantiry" id="quantiry" ngModel class="form-control">
+<br>
+  <button class="btn btn-primary" type="submit">Submit</button>
+
+</form>

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {HttpClientModule} from '@angular/common/http'
+import { FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,7 +11,10 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule} from '@angular/material/icon';
 import { MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule} from '@angular/material/form-field';
-import { FormsModule} from '@angular/forms';
+import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMenuModule} from '@angular/material/menu';
 import { SidePanelComponent } from './side-panel/side-panel.component';
@@ -23,14 +27,20 @@ import { MatTabsModule} from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { AuthComponent } from './auth/auth.component';
 import { LoadingComponent } from './shared/loading/loading.component';
-import { NotAvailableComponent } from './sared/not-available/not-available.component';
-import { CartComponent } from './products/cart/cart.component'
+import { CartComponent } from './products/cart/cart.component';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { AddProductComponent } from './products/add-product/add-product.component';
+import { Test1Component } from './test1/test1.component';
+import { from } from 'rxjs';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     SidePanelComponent,
+
     ProductsComponent,
     ProductListComponent,
     ProductElementComponent,
@@ -38,8 +48,9 @@ import { CartComponent } from './products/cart/cart.component'
     ProductDetailComponent,
     AuthComponent,
     LoadingComponent,
-    NotAvailableComponent,
-    CartComponent
+    CartComponent,
+    AddProductComponent,
+    Test1Component
 
   ],
   imports: [
@@ -47,6 +58,8 @@ import { CartComponent } from './products/cart/cart.component'
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    MatPaginatorModule,
     FlexLayoutModule,
     MatMenuModule,
     MatToolbarModule,
@@ -55,7 +68,11 @@ import { CartComponent } from './products/cart/cart.component'
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
-    MatTabsModule
+    MatTabsModule,
+    MatListModule,
+    MatSnackBarModule,
+
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

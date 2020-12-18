@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Cart } from 'src/app/shared/cart.model';
+import { Cart } from 'src/app/shared/models/cart.model';
 
 import { from, Subscription } from 'rxjs';
 import { CartService } from 'src/app/shared/cart.service';
@@ -9,19 +9,35 @@ import { CartService } from 'src/app/shared/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit, OnDestroy {
+export class CartComponent implements OnInit{
   private subscription: Subscription;
-  constructor(private cartService: CartService) { }
-  cart_list: Cart[] = this.cartService.getCart();
+  public cart_list: Cart[];
+  grand_total=0;
+  constructor(private cartService: CartService) {
+    this.cart_list = this.cartService.getCart();
+    this.getGrandTotal();
+   }
+
   ngOnInit(): void {
     this.subscription = this.cartService.cartChanged.subscribe((carts) => {
       this.cart_list = carts;
-      console.log('cart changed');
-      console.log(carts);
+      this.grand_total=0;
+      this.getGrandTotal();
+
     });
   }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  onDeleteItem(index: number){
+    this.cartService.deleteItem(index);
+  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
+  getGrandTotal(){
+      for(let item of this.cart_list)
+      {
+        this.grand_total = this.grand_total + (item.amount * item.item.price);
+      }
+
   }
 
 }

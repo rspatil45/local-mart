@@ -1,17 +1,88 @@
-<a style="text-decoration:none; cursor: pointer;">
-  <div class="card shadow p-2 mb-2 bg-white rounded" style="margin-bottom: 2rem;">
-    <img class="card-img-top" src="{{product.imgPath}}" fxShow.gt-sm alt="Card image cap"
-      style="width:fit-content;height: 12rem;" [routerLink]="[index]" routerLinkActive="active">
-
-    <!-- <img class="card-img-top" src="{{product.imgPath}}" fxHide.gt-xs alt="Card image cap" style="height: 12rem;" hidden-lg hidden-md
-      [routerLink]="[index]" routerLinkActive="active"> -->
-    <div class="card-body">
-      <div [routerLink]="[index]" routerLinkActive="active">
-        <h2 class="card-title">{{product.name}}</h2>
-        <!-- <p class="card-text">{{product.description}}</p> -->
-      </div>
-      <hr>
-      <button class="btn btn-primary btn-block" (click)="onAddCart()" [disabled]="!btn_not_clicked">Add to Cart</button>
+<mat-card class="main-card">
+  <div mat-card-image *ngIf="show">
+    <div style="margin: 3rem 6rem;">
+      <app-loading></app-loading>
     </div>
   </div>
-</a>
+  <img style="max-height: 10rem;" mat-card-image
+  *ngIf="!show"src="{{product.image}}"
+  alt="Photo of {{product.name}}" (click)="onDetail()">
+
+  <mat-card-header>
+    <mat-card-title style="width: 7rem;">{{product.name}}</mat-card-title>
+    <span ></span>
+    <span fxFlex style="border: red solid 2px; height: 25px; padding: 2px; text-align: center;">{{product.category}}</span>
+    <mat-card-subtitle>{{modified_date}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p style="text-align: center;">{{product.description}} </p>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+    <button mat-button style="cursor:default;">Rs {{product.price}}</button>
+    <span style="padding: 2px; text-align: right;" fxFlex fxLayoutAlign="flex-end center">
+      <button mat-button *ngIf="count==0" (click)="onAddCart()" ><mat-icon>add_shopping_cart</mat-icon></button>
+
+      <button  *ngIf="count>0" class="cart-button" style="background-color: red;" (click)="onRemoveCart()"><mat-icon>remove</mat-icon></button>
+      <span *ngIf="count>0" style="padding: 1rem">{{count}}</span>
+      <button  *ngIf="count>0" class="cart-button" style="background-color: green;" (click)="onAddCart()" > <mat-icon>add</mat-icon> </button>
+
+    </span>
+
+  </mat-card-actions>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <a style="text-decoration:none; cursor: pointer;border-radius: 50px;">
+  <div class="flip-card shadow rounded " style="margin-bottom: 2rem;">
+    <div class="flip-card-inner">
+    <div class="flip-card-front " style="border-radius:10%">
+      <div class="row" >
+        <div class="col-md-12" >
+          <div style="height: 9rem; text-align:center; padding-top: 2rem;" *ngIf="show">
+            <app-loading > </app-loading>
+          </div>
+            <img *ngIf="!show" style=" width:fit-content; max-height: 12rem; object-fit:fill; " class="card-img-top image_front" src="{{product.image}}"
+             alt="Image not Found"
+             [routerLink]="[index]" routerLinkActive="active">
+        </div>
+        <hr>
+        <br>
+        <div class="col-md-12">
+          <div class="card-body">
+            <div [routerLink]="[index]" routerLinkActive="active">
+              <h2 class="card-title" style="text-align: center;">{{product.name}}</h2>
+              <p style="text-decoration: none;">(Price: {{product.price}})</p>
+              <!-- <p class="card-text">{{product.description}}</p> -->
+            <!-- </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="flip-card-back">
+      <div [routerLink]="[index]" routerLinkActive="active">
+      <img src="{{product.image}}" mat-card-avatar alt="">
+      <h2>{{product.name}}</h2>
+      <p>{{product.description}}</p>
+      <hr>
+    </div>
+            <button class="btn btn-primary btn-block" (click)="onAddCart()" [disabled]="!btn_not_clicked">Add to Cart</button>
+    </div>
+      </div>
+    </div>
+</a> -->
