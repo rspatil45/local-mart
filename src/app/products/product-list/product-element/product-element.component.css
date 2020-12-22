@@ -3,8 +3,15 @@
   border: 15%;
 }
 .cart-button{
-  border-radius: 25%;
+  /* border-radius: 25%; */
+  display:inline-block;
   color: white;
+  width:2rem;
+  user-select: none;
+   cursor:pointer;
+   text-align: center;
+   text-decoration: none;
+
 }
 .main-card:hover{
   z-index: 50;

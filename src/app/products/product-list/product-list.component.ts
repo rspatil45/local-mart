@@ -37,7 +37,6 @@ export class ProductListComponent implements OnInit {
     this.proService.categoryChanged.subscribe(
       (category)=>{
         this.category = category;
-        console.log(this.category);
         if(this.category == "all")
         this.proService.fetchProducts(this.postPerPage,1);
         else

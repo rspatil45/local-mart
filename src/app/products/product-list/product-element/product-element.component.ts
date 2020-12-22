@@ -18,6 +18,7 @@ export class ProductElementComponent implements OnInit {
   btn_not_clicked = true;
   show = true;
   count = 0;
+  modDescription="";
   modified_date=null;
   constructor(private cartService : CartService, private _snackBar: MatSnackBar,
     private route: ActivatedRoute,
@@ -29,7 +30,8 @@ export class ProductElementComponent implements OnInit {
     },1000);
     this.index = this.product.id;
    // console.log(this.product);
-   this.modified_date = formatDate(this.product.date,"yyyy/MM/dd","en-US");
+   this.modified_date = formatDate(this.product.date,"yyyy-MM-dd","en-US");
+   this.modDescription = this.product.description.slice(0,25)+" ...";
   }
   onAddCart(){
     //this.btn_not_clicked = false;

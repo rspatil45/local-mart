@@ -1,7 +1,7 @@
 <div *ngIf="cart_list.length<1;">
   <div class="row">
     <div class="col-md-6" style="text-align: center;">
-      <img src="https://chillydraji.files.wordpress.com/2015/08/empty_cart.jpeg" alt="Image not found">
+      <img src="https://i.ibb.co/hFR4q1k/empty-cart.jpg" alt="Image not found">
       <h2>Sorry! Your cart is empty</h2>
       <hr>
       <button mat-raised-button color="primary" routerLink="/products">Shop something</button>
@@ -29,6 +29,7 @@
                {{cart.item.name}}
               </mat-panel-title>
               <mat-panel-description>
+                {{cart.amount}} Unit
 
               </mat-panel-description>
             </mat-expansion-panel-header>

@@ -9,6 +9,8 @@
           <li class="nav-item">
             <button mat-button routerLink="cart" style="margin-right: 1rem;" *ngIf="!authService.currentUser" fxShow="false" fxShow.gt-sm data-toggle="collapse" data-target=".navbar-collapse.show"><mat-icon>shopping_cart</mat-icon>My Cart</button>
           </li>
+
+
           <li class="nav-item" fxHide="false" fxHide.gt-sm >
             <button mat-menu-item routerLink="products" class="sm-menu" data-toggle="collapse" data-target=".navbar-collapse.show">
               <mat-icon class="sm-icon" >home</mat-icon>
@@ -30,13 +32,13 @@
               <mat-divider></mat-divider>
           </button>
           </li>
-          <li class="nav_item" fxHide="false" fxHide.gt-sm  *ngIf="authService.currentUser">
-            <button routerLink="products/new" mat-menu-item class="sm-menu"  data-toggle="collapse" data-target=".navbar-collapse.show">
+          <!-- <li class="nav_item" fxHide="false" fxHide.gt-sm  *ngIf="authService.currentUser">
+            <button routerLink="products/edit" mat-menu-item class="sm-menu"  data-toggle="collapse" data-target=".navbar-collapse.show">
               <mat-icon class="sm-icon">update</mat-icon>
               <span>Update Product</span>
             </button>
             <mat-divider></mat-divider>
-          </li>
+          </li> -->
           <li class="nav-item" fxHide="false" fxHide.gt-sm >
             <button mat-menu-item class="sm-menu" data-toggle="collapse" data-target=".navbar-collapse.show">
               <mat-icon class="sm-icon">phone</mat-icon>
@@ -73,10 +75,10 @@
       <mat-icon>add_circle</mat-icon>
       <span>Add Product</span>
   </button>
-  <button routerLink="products/new" mat-menu-item >
+  <!-- <button routerLink="products/new" mat-menu-item >
     <mat-icon>update</mat-icon>
     <span>Update Product</span>
-  </button>
+  </button> -->
 
   <button mat-menu-item >
     <mat-icon>email</mat-icon>

@@ -1,13 +1,16 @@
-<mat-selection-list>
-  <mat-list-option (click)="onSetCategory('all')"> Home </mat-list-option>
+<mat-selection-list [multiple]="false" style="background-color: azure;">
+  <mat-list-option (click)="onSetCategory('all')" class="spanel" style="padding-left: 2rem;">Home</mat-list-option>
   <mat-divider></mat-divider>
+
   <div *ngFor="let ctgr of categories">
-    <mat-list-option (click)="onSetCategory(ctgr)"> {{ctgr}} </mat-list-option>
+    <mat-list-option (click)="onSetCategory(ctgr)" class="rounded" style="padding-left: 3rem; ">
+     <strong>{{ctgr|titlecase}} </strong> </mat-list-option>
+
   </div>
-  <mat-divider>categories</mat-divider>
+  <mat-divider></mat-divider>
 
 </mat-selection-list>
 <!-- <mat-card>Grocerry</mat-card>
 <mat-card>Handicraft</mat-card>
 <mat-card>Other</mat-card> -->
-<hr>
+

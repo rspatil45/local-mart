@@ -71,9 +71,9 @@ export class ProductService {
           productList.push(obj1);
         })
       })
-
+      this.products = null;
     this.products = productList;
-      console.log(this.products);
+
     this.productChanged.next(this.products);
   }
 
@@ -82,7 +82,7 @@ export class ProductService {
   }
   getProduct(index: number){
     const id = `${index}`;
-    return this.http.get<response_format>("http://localhost:8080/products/"+id);
+    return this.http.get<Product>("http://localhost:8080/products/"+id);
   }
 
   updateProduct(index: number, product: Product)

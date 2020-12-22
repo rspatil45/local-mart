@@ -1,24 +1,54 @@
-<form ngForm (ngSubmit)="onSubmit(f)" ngForm #f="ngForm">
+<div class="form-control col-md-10" style="background-color:green; color: white;margin:1rem" *ngIf="message">
+  {{message}}
+</div>
+<br>
+<form ngForm (ngSubmit)="onSubmit(f)" ngForm #f="ngForm" class="col-md-10">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="item_name"><strong>Name</strong></label>
+        <input type="text" class="form-control" name="item_name" id="item_name" ngModel required>
+        </div>
+        <div class="col-md-6">
+          <label for="category"><strong>Category</strong></label>
+          <select class="form-control" name="category" id="category" ngModel required>
+            <option>Food</option>
+            <option >Handicraft</option>
+            <option>3</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <br>
+      <label for="price"><strong>Price</strong></label>
+      <input type="text" name="price" id="price" ngModel class="form-control">
+      <br>
+      <label for="quantiry"><strong>Quantity</strong></label>
+      <input type="text" name="quantiry" id="quantiry" ngModel class="form-control">
+    <br>
 
-  <label for="item_name"><strong>Name</strong></label>
-  <input type="text" class="form-control" name="item_name" id="item_name" ngModel>
+
+    </div>
+    <div class="col-md-6" style="text-align:center;">
+      <div style="width: 28rem; height: 15rem; border: red solid 1px">
+        <img src="{{imageurl}}" alt="" style="width: 100%; height: 100%;">
+        <p>preview of image</p>
+      </div>
+    </div>
+  </div>
 
   <br>
   <label for="image"><strong>Image url</strong></label>
-  <input type="text" name="image" id="image" ngModel class="form-control">
+  <input type="text" name="image" id="image" ngModel class="form-control" [(ngModel)]="imageurl">
 
   <br>
   <label for="description"><strong>Description</strong></label>
-  <input type="text" name="description" id="description" ngModel class="form-control">
+  <!-- <input type="textarea" name="description" id="description" ngModel class="form-control"> -->
+  <textarea name="description" id="description" cols="" rows="6" class="form-control" id="description" ngModel></textarea>
 
   <br>
-  <label for="price"><strong>Price</strong></label>
-  <input type="text" name="price" id="price" ngModel class="form-control">
 
-  <br>
-  <label for="quantiry"><strong>Quantity</strong></label>
-  <input type="text" name="quantiry" id="quantiry" ngModel class="form-control">
-<br>
   <button class="btn btn-primary" type="submit">Submit</button>
 
 </form>

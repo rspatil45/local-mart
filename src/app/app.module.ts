@@ -14,7 +14,7 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 
-
+import {MatSelectModule} from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMenuModule} from '@angular/material/menu';
 import { SidePanelComponent } from './side-panel/side-panel.component';
@@ -31,7 +31,6 @@ import { CartComponent } from './products/cart/cart.component';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { AddProductComponent } from './products/add-product/add-product.component';
-import { Test1Component } from './test1/test1.component';
 import { from } from 'rxjs';
 
 
@@ -49,8 +48,7 @@ import { from } from 'rxjs';
     AuthComponent,
     LoadingComponent,
     CartComponent,
-    AddProductComponent,
-    Test1Component
+    AddProductComponent
 
   ],
   imports: [
@@ -71,7 +69,7 @@ import { from } from 'rxjs';
     MatTabsModule,
     MatListModule,
     MatSnackBarModule,
-
+    MatSelectModule,
     MatExpansionModule
   ],
   providers: [],

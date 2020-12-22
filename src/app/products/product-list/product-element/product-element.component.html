@@ -15,7 +15,7 @@
     <mat-card-subtitle>{{modified_date}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p style="text-align: center;">{{product.description}} </p>
+    <p style="text-align: center;">{{modDescription}} </p>
   </mat-card-content>
   <mat-divider></mat-divider>
   <mat-card-actions>
@@ -23,9 +23,9 @@
     <span style="padding: 2px; text-align: right;" fxFlex fxLayoutAlign="flex-end center">
       <button mat-button *ngIf="count==0" (click)="onAddCart()" ><mat-icon>add_shopping_cart</mat-icon></button>
 
-      <button  *ngIf="count>0" class="cart-button" style="background-color: red;" (click)="onRemoveCart()"><mat-icon>remove</mat-icon></button>
+      <div  *ngIf="count>0" class="cart-button rounded-pill" style="background-color: red;" (click)="onRemoveCart()"><mat-icon>remove</mat-icon></div>
       <span *ngIf="count>0" style="padding: 1rem">{{count}}</span>
-      <button  *ngIf="count>0" class="cart-button" style="background-color: green;" (click)="onAddCart()" > <mat-icon>add</mat-icon> </button>
+      <div  *ngIf="count>0" class="cart-button rounded-pill" style="background-color: green;" (click)="onAddCart()" > <mat-icon>add</mat-icon> </div>
 
     </span>
 

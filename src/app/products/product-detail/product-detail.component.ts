@@ -4,7 +4,7 @@ import { ProductService } from 'src/app/shared/product.service';
 import { Product } from 'src/app/shared/models/product.model';
 import { CartService} from '../../shared/cart.service';
 import { Cart } from 'src/app/shared/models/cart.model';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 import {MatSnackBar} from '@angular/material/snack-bar'
 import { AuthService } from 'src/app/auth/auth.service';
 @Component({
@@ -13,23 +13,35 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit{
-  product:Product;
+  product:Product=null;
+  productChanged = new Subject<Product>();
   id: number;
   haveAccess = false;
   user = this.authService.currentUser;
   quantity: number = 0;
+  subscription: Subscription;
+
   constructor(private proService: ProductService, private route: ActivatedRoute,
     private router: Router, private cartService: CartService,private _snackBar: MatSnackBar,
     private authService: AuthService) { }
-    subscription: Subscription;
-  ngOnInit(): void {
-    this.subscription=this.route.params.subscribe((params: Params)=>{
+
+    ngOnInit(): void {
+      this.subscription=this.route.params.subscribe((params: Params)=>{
       this.id = +params['id'];
-   this.proService.getProduct(this.id).subscribe(item=>{
-     this.product = item;
+
+      this.proService.getProduct(this.id).subscribe(item=>{
+      this.productChanged.next(item);
    })  });
 
+   this.productChanged.subscribe(item=>{
+     this.product = item;
+     this.getAccess();
+   })
   }
+  // onSetProduct(product:Product){
+  //   this.product = product;
+  //   this.getAccess();
+  // }
   onAddtoCart(){
 
     this.quantity = this.quantity+1;
@@ -39,7 +51,12 @@ export class ProductDetailComponent implements OnInit{
     this._snackBar.open("Product Added","successfylly!",{ duration:1000});
 
   }
-  onUpdate(){ }
+  onUpdate(){
+
+    const link = "products/edit/" + this.product.id;
+
+    this.router.navigate([link]);
+  }
 
   onDelete(){
     this.proService.deleteProduct(this.id);
@@ -48,20 +65,25 @@ export class ProductDetailComponent implements OnInit{
   }
 
   getAccess(){
-    console.log(this.user.userId+ this.product.userId);
+
     if(this.user)
     {
       if(this.user.userId == this.product.userId)
       {
         this.haveAccess = true;
-        console.log(this.user.userId, this.product.userId);
+        // console.log(this.user.userId, this.product.userId);
       }
       if(this.user.role == "admin")
       {
         this.haveAccess = true;
       }
     }
+
   }
+
+  // ngOnDestroy(): void {
+  //   this.subscription.unsubscribe();
+  // }
 
 
 }

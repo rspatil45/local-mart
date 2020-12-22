@@ -29,9 +29,9 @@ export class CartComponent implements OnInit{
   onDeleteItem(index: number){
     this.cartService.deleteItem(index);
   }
-  // ngOnDestroy() {
-  //   this.subscription.unsubscribe();
-  // }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
   getGrandTotal(){
       for(let item of this.cart_list)
       {
