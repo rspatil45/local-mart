@@ -1,6 +1,6 @@
-<div style="color: white;background-color:navy;padding: 0 5%; position: relative;">
-  <nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand" routerLink="products" style="cursor: pointer;">Local Mart</div>
+
+  <nav class="navbar navbar-expand-lg" style="color: white;padding: 0 6%; height: 4rem;">
+    <div class="navbar-brand" routerLink="products" style="cursor: pointer;user-select: none;">Local Mart</div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <mat-icon style="color:white">menu</mat-icon>
       </button>
@@ -65,7 +65,7 @@
         </ul>
       </div>
    </nav>
-</div>
+
 <mat-menu #usermenu="matMenu" class="usermenu">
   <button mat-menu-item routerLink="cart">
     <mat-icon>shopping_cart</mat-icon>
@@ -89,81 +89,3 @@
     <mat-icon>logout</mat-icon>
     <span>LogOut</span>
   </button>
-
-
-<!-- <mat-toolbar style="background-color: navy; color:white" >
-
-  <div  style="cursor: pointer;margin-right:1rem;" routerLink="/products">
-       LocalMart</div>
-  <button mat-button routerLink="/products" fxShow="false" fxShow.gt-sm ><mat-icon>home</mat-icon><span> <strong>Home</strong></span></button>
-  <input type="text" fxShow="false" class="rounded-pill" fxShow.gt-sm class="form-control" style="margin: 0 5%" >
-  <input type="text" fxHide="false" class="rounded-pill" fxHide.gt-sm class="form-control">
-
-
-  <span class="fill-remaining-space"></span>
-
-  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-
-
-    <button mat-button routerLink="cart" style="margin-right: 1rem;" *ngIf="!authService.currentUser"><mat-icon>shopping_cart</mat-icon>My Cart</button>
-    <a mat-raised-button color="accent" (click)="demoClicked()" style="cursor: pointer; margin-right: 5px;" *ngIf="!userLogged">LogIn</a>
-
-
-    <div [mat-menu-trigger-for]="usermenu" *ngIf="authService.currentUser">
-      <div *ngIf="authService.currentUser" mat-menu-item  style="padding: 0 1rem; color: white;">
-        <mat-icon style="color: white;">account_circle</mat-icon>
-        <span><strong>{{userLogged.firstname }}</strong></span>
-      </div>
-    </div>
-    <mat-menu #usermenu="matMenu" class="usermenu">
-      <button mat-menu-item routerLink="cart">
-        <mat-icon>shopping_cart</mat-icon>
-        <span>My Cart</span>
-      </button>
-      <button routerLink="products/new" mat-menu-item >
-          <mat-icon>add_circle</mat-icon>
-          <span>Add Product</span>
-      </button>
-      <button routerLink="products/new" mat-menu-item >
-        <mat-icon>update</mat-icon>
-        <span>Update Product</span>
-      </button>
-
-      <button mat-menu-item routerLink="cart">
-        <mat-icon>email</mat-icon>
-        <span>Feedback</span>
-      </button>
-
-
-   <mat-divider></mat-divider>
-      <button class="btn btn-danger btn-block"  (click)="onLogOut()">
-        Logout
-      </button>
-    </mat-menu>
-
-  </div>
-
-<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="a menu" fxHide="false" fxHide.gt-sm ml-auto>
-  <mat-icon>more_vert</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
-
-  <button mat-menu-item routerLink="products">
-    <mat-icon>home</mat-icon>
-    <span>Home</span>
-    </button>
-  <button mat-menu-item routerLink="cart">
-    <mat-icon>shopping_cart</mat-icon>
-    <span>My Cart</span>
-    </button>
-  <button mat-menu-item>
-    <mat-icon>contacts</mat-icon>
-    <span>Contact us</span>
-  </button>
-  <div mat-menu-item *ngIf="!userLogged">
-    <button class="btn-block" mat-raised-button color="warn"  >LogIn</button>
-  </div>
-  <div mat-menu-item *ngIf="userLogged">
-    <button class="btn-block" mat-raised-button color="warn" (click)="onLogOut()">Logout</button>
-  </div>
-</mat-menu> -->

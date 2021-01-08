@@ -4,10 +4,11 @@
       <app-loading></app-loading>
     </div>
   </div>
-  <img style="max-height: 10rem;" mat-card-image
-  *ngIf="!show"src="{{product.image}}"
+  <div style="height: 10rem; text-align: center;" *ngIf="!show">
+  <img style="max-height: 100%;" mat-card-image
+  src="{{product.image}}"
   alt="Photo of {{product.name}}" (click)="onDetail()">
-
+  </div>
   <mat-card-header>
     <mat-card-title style="width: 7rem;">{{product.name}}</mat-card-title>
     <span ></span>

@@ -1,22 +1,16 @@
-<div class="row" style="z-index: 100;">
-  <div class="col-md-12" >
+<div class="row main">
+  <div class="col-md-12" style="z-index: 100; position:fixed; background-color: navy; width: 100%;">
     <app-nav-bar></app-nav-bar>
   </div>
-</div>
-
-
-
-
-  <div class="row" >
     <app-auth *ngIf="showLogin"></app-auth>
-    <div class="col-md-3 part1" fxShow="false" fxShow.gt-sm style="padding-left: 5%; min-height:50rem" >
+    <!-- <div class="col-md-3 part1" fxShow="false" fxShow.gt-sm style="padding-left: 5%; min-height:50rem" >
       <app-side-panel></app-side-panel>
-    </div>
+    </div> -->
 
-    <div class="col-md-9 part2">
+
+    <div class="col-md-12 part2">
+      <div style="height: 5rem"></div>
       <router-outlet></router-outlet>
     </div>
-  </div>
-
-
+</div>
 <!-- <app-test-demo style="text-align: center;"></app-test-demo> -->

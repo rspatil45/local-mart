@@ -1,16 +1,28 @@
-<div class="row" *ngIf="product">
-  <div class="col-md-2">
+<div class="row" *ngIf="product" style="min-height: 78vh;">
+  <!-- <div class="col-md-2">
     <div style="border-left: 6px solid grey"></div>
-  </div>
-  <div class="col-md-11" (click)="getAccess()">
-    <img src="{{product.image}}" alt="image not found" style="max-width: 24rem;">
+  </div> -->
+  <div class="col-md-12" (click)="getAccess()">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{product.image}}" alt="image not found" style="max-width: 30rem;">
+      </div>
+      <div class="col-md-8">
+        <h1><strong>{{product.name | titlecase}}</strong></h1>
+        <p class="btn btn-light" style="user-select: none; cursor: default;">Price : {{product.price}}</p>
+        <p class="btn btn-light" style="user-select: none; cursor: default;">Category : {{product.category}}</p>
+        <div>
+          <p>Tags: </p>
+        </div>
+        <hr>
+        <button mat-raised-button color="primary" (click)="onAddtoCart()">Add To Cart</button>
+        <button mat-raised-button color="accent" (click)="onUpdate()"[disabled]="!haveAccess" >Update</button>
+        <button mat-raised-button color="warn" (click)="onDelete()" [disabled]="!haveAccess">Delete</button>
+
+      </div>
+    </div>
+
     <hr>
-    <h1><strong>{{product.name}}</strong></h1>
-    <p class="btn btn-light" style="border: blue solid 2px; cursor:none;">Price: {{product.price}}</p>
-    <hr>
-    <button mat-raised-button color="primary" (click)="onAddtoCart()">Add To Cart</button>
-    <button mat-raised-button color="accent" (click)="onUpdate()"[disabled]="!haveAccess" >Update</button>
-    <button mat-raised-button color="warn" (click)="onDelete()" [disabled]="!haveAccess">Delete</button>
 
     <mat-tab-group>
       <mat-tab label="Description"><p>{{product.description}}</p></mat-tab>

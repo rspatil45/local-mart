@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/shared/product.service';
 import { Product } from 'src/app/shared/models/product.model';
 
@@ -17,7 +17,9 @@ export class ProductEditComponent implements OnInit {
   message="";
   imageurl = "";
   @ViewChild('f') form:NgForm;
-  constructor(private proService:ProductService ,private http: HttpClient,private authService : AuthService, private route: ActivatedRoute) { }
+  constructor(private proService:ProductService ,private http: HttpClient,
+    private authService : AuthService, private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
@@ -32,6 +34,9 @@ export class ProductEditComponent implements OnInit {
         })
       }
     })
+  }
+  onCancel(){
+    this.router.navigate(['../']);
   }
 
   onSetForm(){

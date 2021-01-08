@@ -31,7 +31,9 @@ import { CartComponent } from './products/cart/cart.component';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { AddProductComponent } from './products/add-product/add-product.component';
+import {MatDialogModule} from '@angular/material/dialog';
 import { from } from 'rxjs';
+import { LogOutconfirmationComponent } from './shared/dialogs/log-outconfirmation/log-outconfirmation.component';
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { from } from 'rxjs';
     AuthComponent,
     LoadingComponent,
     CartComponent,
-    AddProductComponent
+    AddProductComponent,
+    LogOutconfirmationComponent
 
   ],
   imports: [
@@ -57,6 +60,7 @@ import { from } from 'rxjs';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatDialogModule,
     MatPaginatorModule,
     FlexLayoutModule,
     MatMenuModule,

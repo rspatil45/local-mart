@@ -38,11 +38,12 @@ export class ProductElementComponent implements OnInit {
     this.count = this.count + 1;
     const cart_item = new Cart(this.product,1);
     this.cartService.addToCart(cart_item);
-    this._snackBar.open("Product Added","successfylly!",{ duration:1000});
+    this._snackBar.open("Product Added","successfully!",{ duration:1000});
   }
   onRemoveCart(){
     this.count = this.count-1;
     this.cartService.deleteItem(this.product.id);
+    this._snackBar.open("Removed one item!","successfully",{duration:1000});
   }
   onDetail(){
     this.router.navigate([this.product.id],{relativeTo:this.route});

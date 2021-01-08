@@ -13,10 +13,10 @@
         <div class="col-md-6">
           <label for="category"><strong>Category</strong></label>
           <select class="form-control" name="category" id="category" ngModel required>
-            <option>Food</option>
-            <option >Handicraft</option>
-            <option>3</option>
-            <option>Other</option>
+            <option>daily essentials</option>
+            <option >handicraft</option>
+            <option>grocery</option>
+            <option>other</option>
           </select>
         </div>
       </div>
@@ -48,7 +48,7 @@
   <textarea name="description" id="description" cols="" rows="6" class="form-control" id="description" ngModel></textarea>
 
   <br>
-
-  <button class="btn btn-primary" type="submit">Submit</button>
+  <button class="btn btn-primary" type="submit" style="margin-right: 1rem;">Submit</button>
+  <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
 
 </form>

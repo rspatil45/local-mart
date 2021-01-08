@@ -1,18 +1,15 @@
-.part1{
-  /* background-color:rgb(0,0,0,0.10 ); */
-  padding-top: 2rem;
-   border-right: solid rgb(0,0,0,0.10 ) 3px;
-   /* box-shadow: inset -8px 0 10px -6px black; */
-   /* box-shadow: 8px 0 10px -6px black; */
-
-
+.main{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
 .part2{
   /* background-color:rgba(241, 227, 227, 0.972) ; */
 
-   padding-top: 2rem;
-   padding-bottom: 2rem;
+
+   padding-bottom: 0rem;
 
 }
 

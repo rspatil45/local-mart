@@ -1,0 +1,9 @@
+<div style="text-align: center;">
+  <h2 style="text-align: left;">Confirm Sign Out</h2>
+  <h3>{{user.firstname| titlecase}}, you are signing out of this website.</h3>
+  <div style="text-align: right;">
+    <button class="btn btn-danger" style="margin-right: 1rem;" [mat-dialog-close]="true">SIGN OUT</button>
+    <button class="btn btn-success" style="margin-right: 1rem;" (click)="onCancel()" >CANCEL</button>
+  </div>
+
+</div>

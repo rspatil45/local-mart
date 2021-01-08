@@ -3,6 +3,8 @@ import { Cart } from 'src/app/shared/models/cart.model';
 
 import { from, Subscription } from 'rxjs';
 import { CartService } from 'src/app/shared/cart.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +15,8 @@ export class CartComponent implements OnInit{
   private subscription: Subscription;
   public cart_list: Cart[];
   grand_total=0;
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private _snackBar: MatSnackBar,
+    private router: Router, private route: ActivatedRoute) {
     this.cart_list = this.cartService.getCart();
     this.getGrandTotal();
    }
@@ -28,9 +31,15 @@ export class CartComponent implements OnInit{
   }
   onDeleteItem(index: number){
     this.cartService.deleteItem(index);
+    this._snackBar.open("Product removed","successfully!",{ duration:1000});
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+  onAddToCart(product){
+    const cart_item = new Cart(product,1);
+    this.cartService.addToCart(cart_item);
+    this._snackBar.open("Product Added","successfully!",{ duration:1000});
   }
   getGrandTotal(){
       for(let item of this.cart_list)
@@ -38,6 +47,11 @@ export class CartComponent implements OnInit{
         this.grand_total = this.grand_total + (item.amount * item.item.price);
       }
 
+  }
+  goToDetails(index: number)
+  {
+    const url = "/products/"+index.toString();
+    this.router.navigate([url]);
   }
 
 }

@@ -1,7 +1,11 @@
+<div style="margin: 0 5%; min-height: 78vh;">
+
 <div *ngIf="cart_list.length<1;">
   <div class="row">
-    <div class="col-md-6" style="text-align: center;">
-      <img src="https://i.ibb.co/hFR4q1k/empty-cart.jpg" alt="Image not found">
+    <div class="col-md-6" style="text-align: center; margin-bottom: 1rem;  ">
+
+      <img src="https://i.ibb.co/hFR4q1k/empty-cart.jpg"  alt="Image not found">
+
       <h2>Sorry! Your cart is empty</h2>
       <hr>
       <button mat-raised-button color="primary" routerLink="/products">Shop something</button>
@@ -30,12 +34,11 @@
               </mat-panel-title>
               <mat-panel-description>
                 {{cart.amount}} Unit
-
               </mat-panel-description>
             </mat-expansion-panel-header>
-            <div class="card shadow p-2 mb-2 bg-white rounded link-unstyled">
+            <div class="card shadow p-2 mb-2 bg-white rounded link-unstyled" >
               <div class="row no-gutters">
-                <div class="col-md-4">
+                <div class="col-md-4" (click)="goToDetails(cart.item.id)">
                   <img src="{{cart.item.image}}" class="card-img" alt="...">
                 </div>
                 <div class="col-md-8">
@@ -52,14 +55,20 @@
                     <div class="row">
                       <div class="col-md-6">
                         <button mat-raised-button color="accent" class="btn-block" fxShow="false" fxShow.gt-sm
-                          style="text-align: center;">
+                          [disabled]="true" style="text-align: center;">
                           <mat-icon>favorite</mat-icon> Add to wishlist
                         </button>
                       </div>
                       <div class="col-md-6">
-                        <button mat-raised-button color="warn" class="btn-block" (click)="onDeleteItem(cart.item.id)">
+                        <div mat-raised-button class="btn-block" style="border: 2px black solid; color: white; border-radius: 5%;">
+                          <div class="row" style="text-align: center; margin: 4px 0;">
+                            <div class="col-md-6 col-sm-6 col-sx-6" style="background-color: red;" (click)="onDeleteItem(cart.item.id)"><mat-icon style="padding: 0 6px; cursor: pointer;user-select:none;">remove</mat-icon></div>
+                            <div class="col-md-6 col-sm-6 col-sx-6" style="background-color: green;" (click)="onAddToCart(cart.item)"><mat-icon style="padding: 0 6px; cursor: pointer; user-select:none;">add</mat-icon></div>
+                          </div>
+                        </div>
+                        <!-- <button mat-raised-button color="warn" class="btn-block" (click)="onDeleteItem(cart.item.id)">
                           <mat-icon>delete</mat-icon> Delete Item
-                        </button>
+                        </button> -->
                       </div>
                     </div>
                   </div>
@@ -90,24 +99,24 @@
     <div class="col-md-6 col-sm-12 col-xs-12 col-lg-6">
 
       <div class="row" style="margin: 1rem">
-        <div class="col md-6"><strong>Product Name</strong></div>
-        <div class="col-md-2"><strong>Price</strong></div>
-        <div class="col-md-2"><strong>Quantity</strong></div>
-        <div class="col-md-2"><strong>Total</strong></div>
+        <div class="col-md-6 col-sm-6"><strong>Product Name</strong></div>
+        <div class="col-md-2 col-sm-2"><strong>Price</strong></div>
+        <div class="col-md-2 col-sm-2"><strong>Quantity</strong></div>
+        <div class="col-md-2 col-sm-2"><strong>Total</strong></div>
       </div>
 
       <div style="margin: 2rem" *ngFor="let item of cart_list">
         <div class="row">
-          <div class="col md-6">
+          <div class="col-md-6 col-sm-6 col-sx-6">
             {{item.item.name}}
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-2 col-sx-2">
             {{item.item.price}}
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-2 col-sx-2">
             {{item.amount}}
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-2 col-sx-2">
             {{item.item.price * item.amount}}
           </div>
 
@@ -123,4 +132,4 @@
   </div>
 </div>
 
-
+</div>
