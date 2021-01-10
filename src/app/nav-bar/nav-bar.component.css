@@ -1,5 +1,5 @@
 .usermenu{
-  position: fixed;
+
   padding-left: 3rem;
 }
 .a{
@@ -11,10 +11,11 @@
 .sm-menu{
   color:white;
   text-align:center;
+  background-color: blue;
 }
 .sm-icon{
   color:white;
 }
 .sm-menu:hover{
-  background-color: grey;
+  background-color: navy;
 }

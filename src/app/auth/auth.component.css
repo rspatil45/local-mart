@@ -18,15 +18,15 @@ input.ng-invalid.ng-touched{
 }
 .alert-box
 {
-  position: fixed;
+  position:fixed;
   top: 10vh;
   left: 50vh;
   right: 50vh;
  /* width: 100vw; */
   padding: 26px;
-  background-color: navy;
+  background-color:cadetblue;
   z-index: 150;
-  color: white;
+  color: black;
   box-shadow: 0 2px 8px rgb(0, 0, 0, 0.26);
 }
 .alert-box-action{
@@ -47,12 +47,17 @@ input.ng-invalid.ng-touched{
   box-shadow: 0 2px 8px rgb(0, 0, 0, 0.26);
 }
 .loginInvalid{
-  background-color: red;
-  color: white;
+
+  color:red;
   margin-bottom: 1rem;
+  font-size: 20px;
   text-align: center;
 }
-
+.signupMsg{
+  margin-bottom: 1rem;
+  font-size: 20px;
+  text-align: center;
+}
 .inputContainer i {
   position: absolute;
 }

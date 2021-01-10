@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit {
 
   totalPosts: number;
   pageOptions=[2,4,8,12,16];
-  postPerPage:number = 4;
+  postPerPage:number = 8;
   currentPage:number = 1;
   products: Product[] = [];
   category = "all";

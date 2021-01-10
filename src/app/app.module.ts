@@ -34,6 +34,7 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import {MatDialogModule} from '@angular/material/dialog';
 import { from } from 'rxjs';
 import { LogOutconfirmationComponent } from './shared/dialogs/log-outconfirmation/log-outconfirmation.component';
+import { AuthSmallComponent } from './auth/auth-small/auth-small.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { LogOutconfirmationComponent } from './shared/dialogs/log-outconfirmatio
     LoadingComponent,
     CartComponent,
     AddProductComponent,
-    LogOutconfirmationComponent
+    LogOutconfirmationComponent,
+    AuthSmallComponent
 
   ],
   imports: [

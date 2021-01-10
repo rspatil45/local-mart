@@ -26,6 +26,17 @@ export class NavBarComponent implements OnInit {
   demoClicked(){
     this.loginService.method();
   }
+  onCartClick(){
+    console.log(this.userLogged);
+    if(this.userLogged == null)
+    {
+      this.demoClicked();
+    }
+    else
+    {
+      this.router.navigate(['/cart'],{relativeTo: this.route});
+    }
+  }
   onLogOut(){
     var diaglogOutput:any;
     const dialogRef = this.dialog.open(LogOutconfirmationComponent, {
@@ -38,9 +49,6 @@ export class NavBarComponent implements OnInit {
         this.authService.userLogIn(null);
         this.router.navigate(["products"],{relativeTo: this.route});
       }
-
-
-
     });
 
 

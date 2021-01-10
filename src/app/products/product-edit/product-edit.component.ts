@@ -48,7 +48,6 @@ export class ProductEditComponent implements OnInit {
     this.form.controls['description'].patchValue(this.product.description);
     this.form.controls['price'].patchValue(this.product.price);
     this.form.controls['quantiry'].patchValue(this.product.quantity);
-
     //console.log(this.form);
   }
 

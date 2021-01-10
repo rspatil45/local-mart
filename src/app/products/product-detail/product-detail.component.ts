@@ -59,9 +59,14 @@ export class ProductDetailComponent implements OnInit{
   }
 
   onDelete(){
-    this.proService.deleteProduct(this.id);
+    this.proService.deleteProduct(this.id).subscribe(value=>{
+      if(value)
+      {
+        this.router.navigate(['/products']);
+      }
+    })
 
-    this.router.navigate(['../']);
+
   }
 
   getAccess(){

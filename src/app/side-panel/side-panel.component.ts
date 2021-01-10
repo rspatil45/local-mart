@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SidePanelComponent implements OnInit {
   public x = "";
-  categories = ["grocerry","daily essentials","other","handicraft"]
+  categories = ["grocery","daily essentials","other","handicraft"]
   constructor(private proService : ProductService, private router: Router) { }
   onSetCategory(ctgr: string){
     setTimeout(()=>{

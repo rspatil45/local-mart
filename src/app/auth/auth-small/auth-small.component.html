@@ -1,0 +1,78 @@
+<div class="row" style="margin: 2%; font-family: 'Times New Roman', Times, serif;">
+  <div class="col-md-4 col-lg-4"></div>
+
+  <div class="col-md-4 col-lg-4" *ngIf="mode">
+    <form (ngSubmit)="onSubmit(f)" ngForm #f="ngForm">
+      <div style="text-align: center;">
+        <img src="https://toppng.com/uploads/preview/user-account-management-logo-user-icon-11562867145a56rus2zwu.png"
+          alt="image not found" style="height: 5rem;">
+        <br>
+        <br>
+        <p style="font-size: 25px;">Sign in to LocalMart</p>
+        <br>
+      </div>
+      <div *ngIf="loginMsg"
+        style=" color: red; margin-bottom: 1rem; text-align: center; border-radius: 7px; font-size: 20px;">
+        <p style="padding-top: 7px;">{{loginMsg}}</p>
+      </div>
+      <div style="background-color: rgb(221, 219, 219); padding: 1rem; border-radius: 7px;">
+
+        <label for="email">
+          <p style="font-size: 20px;">Email address</p>
+        </label>
+        <input type="text" email name="email" class="form-control" ngModel>
+        <br>
+        <label for="password">
+          <p style="font-size: 20px;">Password</p>
+        </label>
+        <input type="password" password name="password" class="form-control" ngModel>
+        <br>
+        <button class="btn btn-success form-control" type="submit">Sign in</button>
+      </div>
+      <br>
+      <div style="border: 3px rgb(221, 219, 219) solid; font-size: 20px; text-align: center; border-radius: 7px;">
+        <p style="padding-top: 7px;">New to LocalMart? <a (click)="onToggleMode()"
+            style="color: blue;cursor: pointer;">Create an account</a></p>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-4 col-lg-4" *ngIf="!mode" style="font-size: 20px;">
+    <form (ngSubmit)="onSubmit(f)" ngForm #f="ngForm">
+      <div *ngIf="signupMsg_sucess" style="margin-bottom: 1rem;text-align: center;  color: green;">
+        <p style="padding-top: 7px;">{{signupMsg_sucess}}</p>
+      </div>
+      <div *ngIf="signupMsg_error" style=" color: red; margin-bottom: 1rem; text-align: center; ">
+        <p style="padding-top: 7px;">{{signupMsg_error}}</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-sx-6">
+          <p>First Name <em style="color: red;">*</em></p>
+          <input class="form-control" required type="text" name="firstname" ngModel>
+        </div>
+        <div class="col-md-6 col-sm-6 col-sx-6">
+          <p>Last Name <em style="color: red;">*</em></p>
+          <input class="form-control" required type="text" name="lastname" ngModel>
+        </div>
+      </div>
+
+     <br>
+      <p>Email Address <em style="color: red;">*</em></p>
+      <input type="text" name="email" required class="form-control" ngModel>
+      <br>
+      <p>Password <em style="color: red;">*</em></p>
+      <input type="text" name="password" required class="form-control" ngModel>
+      <br>
+      <em><input type="checkbox" name="terms" id="" ngModel> I accept terms and condition.</em>
+      <br>
+      <br>
+      <button type="submit" class="form-control btn btn-primary">Create Account</button>
+      <br>
+      <br>
+      <div style="border: solid grey 2px; text-align: center; border-radius: 7px;">
+        <p style="padding-top: 7px;">Already have account? <a style="color: blue;cursor:pointer;"
+            (click)="onToggleMode()">sign in here</a></p>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-md-4 col-lg-4"></div>

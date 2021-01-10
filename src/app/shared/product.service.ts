@@ -90,13 +90,13 @@ export class ProductService {
     // this.products[index] = product;
     // this.productChanged.next(this.products.slice());
   }
-  deleteProduct(id: number)
+  deleteProduct(idx: number)
   {
-    // this.products.splice(id,1);
-    // this.productChanged.next(this.products);
+    const id = `${idx}`;
+    return this.http.delete<boolean>("http://localhost:8080/products/"+id);
+
   }
   fetchCount(){
-
      return this.http.get("http://localhost:8080/products/count")
   }
   setCategory(category: string)

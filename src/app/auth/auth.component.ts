@@ -29,6 +29,7 @@ export class AuthComponent implements OnInit {
       //if user doesnot exists then we are in signup Mode
       if(!form.valid)
       {
+        this.signupMsg_error = "Please, fill all required info.";
         return;   // extra validation check (by the way button is disable but hacker can..)
       }
       else{
@@ -78,7 +79,7 @@ export class AuthComponent implements OnInit {
     this.userExists = !this.userExists;
     this.signupMsg_sucess = "";
     this.loginMsg = "";
-    //this.signupMsg_sucess= "";
+    this.signupMsg_error= "";
    }
   ngOnInit(): void {
     var myTag = this.e1.nativeElement.querySelector("p");
