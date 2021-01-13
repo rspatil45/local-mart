@@ -17,7 +17,7 @@ export class ProductDetailComponent implements OnInit{
   productChanged = new Subject<Product>();
   id: number;
   haveAccess = false;
-  user = this.authService.currentUser;
+  user=null;
   quantity: number = 0;
   subscription: Subscription;
 
@@ -26,9 +26,9 @@ export class ProductDetailComponent implements OnInit{
     private authService: AuthService) { }
 
     ngOnInit(): void {
+      this.user= this.authService.currentUser;
       this.subscription=this.route.params.subscribe((params: Params)=>{
       this.id = +params['id'];
-
       this.proService.getProduct(this.id).subscribe(item=>{
       this.productChanged.next(item);
    })  });
@@ -59,7 +59,7 @@ export class ProductDetailComponent implements OnInit{
   }
 
   onDelete(){
-    this.proService.deleteProduct(this.id).subscribe(value=>{
+    this.proService.deleteProduct(this.id,this.user.token).subscribe(value=>{
       if(value)
       {
         this.router.navigate(['/products']);
@@ -70,7 +70,6 @@ export class ProductDetailComponent implements OnInit{
   }
 
   getAccess(){
-
     if(this.user)
     {
       if(this.user.userId == this.product.userId)

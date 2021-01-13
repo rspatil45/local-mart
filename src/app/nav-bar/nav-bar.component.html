@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto" >
           <li class="nav-item">
-            <button mat-button (click)="onCartClick()" style="margin-right: 1rem;" *ngIf="!authService.currentUser" fxShow="false" fxShow.gt-sm data-toggle="collapse" data-target=".navbar-collapse.show"><mat-icon>shopping_cart</mat-icon>My Cart</button>
+            <button mat-button (click)="onCartClick()" style="margin-right: 1rem;" *ngIf="!userLogged" fxShow="false" fxShow.gt-sm data-toggle="collapse" data-target=".navbar-collapse.show"><mat-icon>shopping_cart</mat-icon>My Cart</button>
           </li>
           <li class="nav-item" fxHide="false" fxHide.gt-sm >
             <button mat-menu-item routerLink="products" class="sm-menu" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -23,7 +23,7 @@
               </button>
               <mat-divider></mat-divider>
           </li>
-          <li class="nav-item" fxHide="false" fxHide.gt-sm *ngIf="authService.currentUser">
+          <li class="nav-item" fxHide="false" fxHide.gt-sm *ngIf="userLogged">
             <button routerLink="products/new" mat-menu-item class="sm-menu" data-toggle="collapse" data-target=".navbar-collapse.show">
               <mat-icon class="sm-icon" >add_circle</mat-icon>
               <span>Add Product</span>
@@ -52,8 +52,8 @@
           </li>
 
           <li class="nav-item" fxShow="false" fxShow.gt-sm>
-            <div [mat-menu-trigger-for]="usermenu" *ngIf="authService.currentUser">
-              <div *ngIf="authService.currentUser" mat-menu-item  style="padding: 0 0 0 1rem; color: white;">
+            <div [mat-menu-trigger-for]="usermenu" *ngIf="userLogged">
+              <div *ngIf="userLogged" mat-menu-item  style="padding: 0 0 0 1rem; color: white;">
                 <mat-icon style="color: white;">account_circle</mat-icon>
                 <span><strong>{{userLogged.firstname }}</strong></span>
               </div>

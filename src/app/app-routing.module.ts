@@ -8,20 +8,22 @@ import { AuthComponent } from './auth/auth.component';
 import { Cart } from './shared/models/cart.model';
 import { CartComponent } from './products/cart/cart.component';
 import { AuthSmallComponent } from './auth/auth-small/auth-small.component';
+import { AuthGuard } from './auth/auth.guard';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/products', pathMatch: 'full' },
   { path: 'products', component: ProductsComponent,
     children: [
       { path: '', component: ProductListComponent, pathMatch: 'full'},
-      { path: 'new', component: ProductEditComponent },
+      { path: 'new', component: ProductEditComponent,canActivate: [AuthGuard] },
       { path: ':id', component: ProductDetailComponent },
-      { path: 'edit/:editId', component: ProductEditComponent}
+      { path: 'edit/:editId', component: ProductEditComponent,canActivate: [AuthGuard]}
 
     ]
   },
   { path: 'auth', component: AuthComponent},
-  { path: 'cart', component: CartComponent},
+  { path: 'cart', component: CartComponent,canActivate:[AuthGuard]},
   { path: 'login', component: AuthSmallComponent},
   { path: '**', component: ProductsComponent}
 

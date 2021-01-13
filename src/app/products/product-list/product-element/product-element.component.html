@@ -5,14 +5,14 @@
     </div>
   </div>
   <div style="height: 10rem; text-align: center;" *ngIf="!show">
-  <img style="max-height: 100%;" mat-card-image
-  src="{{product.image}}"
-  alt="Photo of {{product.name}}" (click)="onDetail()">
+    <img style="max-height: 100%;" mat-card-image src="{{product.image}}" alt="Photo of {{product.name}}"
+      (click)="onDetail()">
   </div>
   <mat-card-header>
     <mat-card-title style="width: 7rem;">{{product.name}}</mat-card-title>
-    <span ></span>
-    <span fxFlex style="border: red solid 2px; height: 25px; padding: 2px; text-align: center;">{{product.category}}</span>
+    <span></span>
+    <span fxFlex
+      style="background-color: red; color: white; height: 25px; padding: 2px; text-align: center;">{{product.category}}</span>
     <mat-card-subtitle>{{modified_date}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
@@ -22,11 +22,17 @@
   <mat-card-actions>
     <button mat-button style="cursor:default;">Rs {{product.price}}</button>
     <span style="padding: 2px; text-align: right;" fxFlex fxLayoutAlign="flex-end center">
-      <button mat-button *ngIf="count==0" (click)="onAddCart()" ><mat-icon>add_shopping_cart</mat-icon></button>
+      <button mat-button *ngIf="count==0" (click)="onAddCart()">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
 
-      <div  *ngIf="count>0" class="cart-button rounded-pill" style="background-color: red;" (click)="onRemoveCart()"><mat-icon>remove</mat-icon></div>
+      <div *ngIf="count>0" class="cart-button rounded-pill" style="background-color: red;" (click)="onRemoveCart()">
+        <mat-icon>remove</mat-icon>
+      </div>
       <span *ngIf="count>0" style="padding: 1rem">{{count}}</span>
-      <div  *ngIf="count>0" class="cart-button rounded-pill" style="background-color: green;" (click)="onAddCart()" > <mat-icon>add</mat-icon> </div>
+      <div *ngIf="count>0" class="cart-button rounded-pill" style="background-color: green;" (click)="onAddCart()">
+        <mat-icon>add</mat-icon>
+      </div>
 
     </span>
 
@@ -69,7 +75,7 @@
               <h2 class="card-title" style="text-align: center;">{{product.name}}</h2>
               <p style="text-decoration: none;">(Price: {{product.price}})</p>
               <!-- <p class="card-text">{{product.description}}</p> -->
-            <!-- </div>
+<!-- </div>
           </div>
         </div>
       </div>

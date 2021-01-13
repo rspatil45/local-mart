@@ -1,3 +1,5 @@
+import { Token } from "@angular/compiler/src/ml_parser/lexer";
+
 export class Product {
   public id: number;
   public name: string;
@@ -8,10 +10,10 @@ export class Product {
   public quantity: number;
   public date : Date;
   public category: string;
- // public date: Date;
+
 
   constructor(id: number, name: string, description: string, image: string,
-    price: number, quantity: number, userId:string, date: Date, category:string) {
+    price: number, quantity: number, userId:string, category:string) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -19,7 +21,6 @@ export class Product {
     this.price = price;
     this.quantity = quantity;
     this.userId = userId;
-    this.date = date;
     this.category = category;
   }
 }

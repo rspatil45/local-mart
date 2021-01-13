@@ -85,15 +85,18 @@ export class ProductService {
     return this.http.get<Product>("http://localhost:8080/products/"+id);
   }
 
-  updateProduct(index: number, product: Product)
+  updateProduct(product: any)
   {
-    // this.products[index] = product;
-    // this.productChanged.next(this.products.slice());
+    return this.http.put("http://localhost:8080/products/update",product)
   }
-  deleteProduct(idx: number)
+  addProduct(product:any)
+  {
+    return this.http.post("http://localhost:8080/products/new",product);
+  }
+  deleteProduct(idx: number,token:string)
   {
     const id = `${idx}`;
-    return this.http.delete<boolean>("http://localhost:8080/products/"+id);
+    return this.http.delete<boolean>("http://localhost:8080/products/"+id+"/"+token);
 
   }
   fetchCount(){

@@ -37,16 +37,22 @@ export class AuthComponent implements OnInit {
         const password = form.value.password;
         const firstname = form.value.firstname;
         const lastname = form.value.lastname;
+        const confirm_password = form.value.confirm_password;
+        if(password != confirm_password)
+        {
+          this.signupMsg_error = "Password does not match!";
+          return;
+        }
         this.authService.signUp(email,password,firstname,lastname).subscribe(resData =>{
 
           this.signupMsg_sucess = "user " + resData.email + " is created "+"successfully !"
           setTimeout(()=>{
             this.userExists = !this.userExists;
-          },10);
+          },100);
           form.reset();
         },
         error =>{
-          this.signupMsg_error = error.message;
+          this.signupMsg_error = error.error.message;
         });
 
       }
@@ -55,20 +61,17 @@ export class AuthComponent implements OnInit {
     {
       if(form.invalid)
       {
-        return
+        this.loginMsg = "Please properly provide all credentials";
+        return;
       }
       const email= form.value.email;
       const password = form.value.password;
       this.authService.logIn(email,password).subscribe(resData=>{
-        if(resData){
-          this.authService.userLogIn(resData);
+          this.authService.userLoggedIn(resData);
          // console.log(this.authService.current_user);
           this.loginService.method();
-        }else{
-          this.loginMsg="Invalid user credentials"
-        }
       },error=>{
-        this.loginMsg = error.message;
+        this.loginMsg = error.error.message;
       })
 
     }
@@ -82,13 +85,13 @@ export class AuthComponent implements OnInit {
     this.signupMsg_error= "";
    }
   ngOnInit(): void {
-    var myTag = this.e1.nativeElement.querySelector("p");
-    if(this.platoform.ANDROID)
-    {
-      myTag.classList.remove('back-drop');
-      myTag.classList.add('small-scr');
+    // var myTag = this.e1.nativeElement.querySelector("p");
+    // if(this.platoform.ANDROID)
+    // {
+    //   myTag.classList.remove('back-drop');
+    //   myTag.classList.add('small-scr');
 
-    }
+    // }
   }
 
   onClose(){

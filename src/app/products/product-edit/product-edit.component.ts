@@ -14,7 +14,8 @@ import { Product } from 'src/app/shared/models/product.model';
 export class ProductEditComponent implements OnInit {
   editMode = false;
   product: Product=null;
-  message="";
+  success_message="";
+  error_message="";
   imageurl = "";
   @ViewChild('f') form:NgForm;
   constructor(private proService:ProductService ,private http: HttpClient,
@@ -55,38 +56,45 @@ export class ProductEditComponent implements OnInit {
     //console.log(form.value.category);
     if(!this.editMode)
     {
-      this.http.post("http://localhost:8080/products/new",{
-      name : form.value.item_name,
-      image : form.value.image,
-      description: form.value.description,
-      price: form.value.price,
-      quantity : form.value.quantity,
-      userId : this.authService.currentUser.userId,
-      category: form.value.category
-      }).subscribe(item=>{
-        this.message = "product added successfully";
+      //not edit mode means we are adding new product
+
+      var product = {
+        name : form.value.item_name,
+        image : form.value.image,
+        description : form.value.description,
+        price: form.value.price,
+        quantity : form.value.quantity,
+        category : form.value.category,
+        userId : this.authService.currentUser.userId,
+        token: this.authService.currentUser.token
+      }
+      this.proService.addProduct(product).subscribe(item=>{
+        this.success_message = "product added successfully";
           form.reset();
         },error=>{
-         this.message=error.message;
+         this.error_message=error.error.message;
         }
       )
 
     }
     else{
       //is in edit mode so update it
-      this.http.put("http://localhost:8080/products/update",{
-      id :this.product.id,
-      name : form.value.item_name,
-      image : form.value.image,
-       description: form.value.description,
-      price: form.value.price,
-      quantity : form.value.quantity,
-      category: form.value.category
-      }).subscribe(item=>{
-        this.message = "product updated successfully";
+      var productToUpdate = {
+        id :this.product.id,
+        name : form.value.item_name,
+        image : form.value.image,
+         description: form.value.description,
+        price: form.value.price,
+        quantity : form.value.quantity,
+        category: form.value.category,
+        token : this.authService.currentUser.token
+      }
+
+      this.proService.updateProduct(productToUpdate).subscribe(item=>{
+        this.success_message = "product updated successfully";
         form.reset();
       },error=>{
-      this.message=error.message;
+      this.error_message=error.error.message;
       }
       )
 

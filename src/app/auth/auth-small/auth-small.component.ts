@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
 })
 export class AuthSmallComponent implements OnInit {
 
-  constructor(private authService: AuthService,private router: Router, private route: ActivatedRoute) { }
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) { }
   mode = true;
   @ViewChild('f') form;
   loginMsg = "";
@@ -30,16 +30,14 @@ export class AuthSmallComponent implements OnInit {
     if (!this.mode) {
       //if mode doesnot exists then we are in signup Mode
       if (!form.valid) {
-        if(form.value.email=="" || form.value.password=="" )
-        {
+        if (form.value.email == "" || form.value.password == "") {
           this.signupMsg_error = "Please fill the all required values"
           return;   // extra validation check
         }
 
       }
       else {
-        if(form.value.terms == false)
-        {
+        if (form.value.terms == false) {
           this.signupMsg_error = "You should accept terms and condition";
           return;
         }
@@ -53,36 +51,32 @@ export class AuthSmallComponent implements OnInit {
           this.signupMsg_sucess = "user " + resData.email + " is created " + "successfully !"
           setTimeout(() => {
             this.mode = !this.mode;
-          }, 10);
+          }, 500);
           form.reset();
         },
           error => {
-            this.signupMsg_error = error.message;
-            this.signupMsg_error = this.signupMsg_error.slice(0,50);
+            this.signupMsg_error = error.error.message;
+            this.signupMsg_error = this.signupMsg_error.slice(0, 50);
 
           });
       }
     }
     else {
       if (form.invalid) {
-
-        return
+        this.loginMsg = "Please properly provide all credentials";
+        return;
       }
       const email = form.value.email;
       const password = form.value.password;
       this.authService.logIn(email, password).subscribe(resData => {
-        if (resData) {
-          this.authService.userLogIn(resData);
-          // console.log(this.authService.current_user);
-          this.router.navigate(['../']);
 
-        } else {
-          this.loginMsg = "Invalid user credentials"
-        }
-      }, error => {
-        this.loginMsg = error.message;
+        this.authService.userLoggedIn(resData);
+        // console.log(this.authService.current_user);
+        this.router.navigate(['../']);},
+        error => {
+          this.signupMsg_error = error.error.message;
 
-      })
+        })
     }
 
   }

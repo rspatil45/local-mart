@@ -4,13 +4,14 @@ import { AuthService } from '../auth/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LogOutconfirmationComponent } from '../shared/dialogs/log-outconfirmation/log-outconfirmation.component';
+import { User } from '../shared/models/user.model';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  userLogged = null;
+  userLogged:User;
 
   constructor(private loginService: LoginService, public authService:AuthService,
     private route : ActivatedRoute, private dialog: MatDialog,
@@ -27,12 +28,12 @@ export class NavBarComponent implements OnInit {
     this.loginService.method();
   }
   onCartClick(){
-    console.log(this.userLogged);
-    if(this.userLogged == null)
-    {
-      this.demoClicked();
-    }
-    else
+    // console.log(this.userLogged);
+    // if(this.userLogged == null)
+    // {
+    //   this.demoClicked();
+    // }
+    // else
     {
       this.router.navigate(['/cart'],{relativeTo: this.route});
     }
@@ -46,7 +47,7 @@ export class NavBarComponent implements OnInit {
       diaglogOutput = result;
       if(diaglogOutput)
       {
-        this.authService.userLogIn(null);
+        this.authService.userLoggedIn(null);
         this.router.navigate(["products"],{relativeTo: this.route});
       }
     });
@@ -54,6 +55,4 @@ export class NavBarComponent implements OnInit {
 
 
   }
- // current_user = this.authService.current_user;
-
 }

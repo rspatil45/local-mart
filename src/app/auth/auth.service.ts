@@ -8,7 +8,7 @@ interface response_format{
   firstname: string,
   lastname: string,
   email: string,
-  password: string
+
 }
 
 @Injectable({
@@ -17,7 +17,7 @@ interface response_format{
 export class AuthService {
 
   currentUser:User = null;
-  userChanged = new Subject<{email:String,firstname:String, lastname:String,role:String,userId:String}>();
+  userChanged = new Subject<User>();
   constructor(private http: HttpClient) { }
 
 
@@ -27,30 +27,30 @@ export class AuthService {
       lastname : lastname,
       email: email,
       password: password
-
     });
   }
+  autoLogIn(){
+    const userData:User = JSON.parse(localStorage.getItem('userData'));
 
+     if(!userData)
+       return false;
+
+    this.currentUser = userData;
+    this.userChanged.next(this.currentUser);
+    return true;
+  }
   logIn(email: string, password: string){
       return this.http.post("http://localhost:8080/users/login",{
         email: email,
         password: password
       })
   }
-  userLogIn(user){
+  userLoggedIn(user){
     this.currentUser = user;
+    localStorage.setItem('userData',JSON.stringify(user));
     this.userChanged.next(this.currentUser);
 
   }
 
 
 }
-
-
-//localhost:8080/users
-// {
-//   "firstname":"rahul",
-//   "lastname":"patil",
-//   "email":"rspatil45@gmail.com",
-//   "password":"9665613416"
-// }
