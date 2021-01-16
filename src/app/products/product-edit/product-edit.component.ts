@@ -48,7 +48,7 @@ export class ProductEditComponent implements OnInit {
     this.form.controls['category'].patchValue(this.product.category);
     this.form.controls['description'].patchValue(this.product.description);
     this.form.controls['price'].patchValue(this.product.price);
-    this.form.controls['quantiry'].patchValue(this.product.quantity);
+    this.form.controls['quantity'].patchValue(this.product.quantity);
     //console.log(this.form);
   }
 
@@ -65,7 +65,7 @@ export class ProductEditComponent implements OnInit {
         price: form.value.price,
         quantity : form.value.quantity,
         category : form.value.category,
-        userId : this.authService.currentUser.userId,
+        publicUid : this.authService.currentUser.publicUid,
         token: this.authService.currentUser.token
       }
       this.proService.addProduct(product).subscribe(item=>{

@@ -1,11 +1,11 @@
 <div class="row" style="margin: 2%; font-family: 'Times New Roman', Times, serif;min-height: 72vh;">
   <div class="col-md-4 col-lg-4"></div>
 
-  <div class="col-md-4 col-lg-4" *ngIf="mode">
+  <div class="col-md-4 col-lg-4" *ngIf="mode" style="min-width: 30rem;">
     <form (ngSubmit)="onSubmit(f)" ngForm #f="ngForm">
       <div style="text-align: center;">
         <img src="https://i.ibb.co/ns3h78V/usericon.png"
-          alt="image not found" style="height: 5rem;">
+          alt="image not found" style="height: 5rem;border-radius: 50%;">
         <br>
         <br>
         <p style="font-size: 25px;">Sign in to LocalMart</p>

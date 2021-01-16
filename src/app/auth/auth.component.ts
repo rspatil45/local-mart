@@ -68,7 +68,7 @@ export class AuthComponent implements OnInit {
       const password = form.value.password;
       this.authService.logIn(email,password).subscribe(resData=>{
           this.authService.userLoggedIn(resData);
-         // console.log(this.authService.current_user);
+         console.log(this.authService.currentUser);
           this.loginService.method();
       },error=>{
         this.loginMsg = error.error.message;

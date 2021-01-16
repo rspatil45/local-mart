@@ -1,7 +1,7 @@
 <div class="back-drop" (click)="onClose()"></div>
-<div class="alert-box" style="border-radius: 50px;">
+<div class="alert-box" style="border-radius: 14px;">
 
-  <div class="row" style="padding:2rem; border: white solid 2px; margin: 0.5rem; border-radius: 25px;">
+  <div class="row" style="padding:2rem; border: white solid 2px; margin: 0.5rem; border-radius: 7px;">
     <div class="col-md-12">
       <form (ngSubmit)="onSubmit(f)" ngForm #f="ngForm">
         <div *ngIf="signupMsg_sucess" class="signupMsg" style=" color: green;"><strong>{{signupMsg_sucess}}</strong> </div>
@@ -41,14 +41,14 @@
         </div>
         <hr>
         <div class="row">
-          <div class="col-md-10">
+          <div class="col-sm-6">
             <button mat-button mat-raised-button type="submit" style="margin-right: 1rem;">{{userExists ? 'Login'
               : 'Sign Up'}}</button>
             <button mat-button mat-raised-button color="primary" type="button" (click)="onSwitch()">{{userExists ?
               'Sign Up' : 'Login'}}</button>
           </div>
 
-          <div class="col-md-2" mr-auto style="text-align: right;">
+          <div class="col-sm-6" style="text-align: right;">
             <button class="btn btn-danger" type="button" (click)="onFormReset()">Reset</button>
           </div>
         </div>

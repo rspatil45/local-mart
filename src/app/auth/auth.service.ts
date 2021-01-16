@@ -47,6 +47,7 @@ export class AuthService {
   }
   userLoggedIn(user){
     this.currentUser = user;
+    console.log(user);
     localStorage.setItem('userData',JSON.stringify(user));
     this.userChanged.next(this.currentUser);
 

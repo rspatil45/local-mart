@@ -72,7 +72,7 @@ export class ProductDetailComponent implements OnInit{
   getAccess(){
     if(this.user)
     {
-      if(this.user.userId == this.product.userId)
+      if(this.user.publicUid == this.product.publicUid)
       {
         this.haveAccess = true;
         // console.log(this.user.userId, this.product.userId);

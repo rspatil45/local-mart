@@ -1,6 +1,6 @@
 
   <nav class="navbar navbar-expand-lg" style="color: white;padding: 0 6%; height: 4rem; ">
-    <div class="navbar-brand" routerLink="products" style="cursor: pointer;user-select: none;">Local Mart</div>
+    <div class="navbar-brand" routerLink="products" style="cursor: pointer;user-select: none;font-size: 25px;">Local Mart</div>
       <button class="navbar-toggler" type="button"  data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <mat-icon style="color:white">menu</mat-icon>
       </button>
@@ -17,7 +17,7 @@
               <mat-divider></mat-divider>
           </li>
           <li class="nav-item" fxHide="false" fxHide.gt-sm >
-            <button mat-menu-item (click)="onCartClick()" class="sm-menu" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <button mat-menu-item (click)="onCartClick()"  class="sm-menu" data-toggle="collapse" data-target=".navbar-collapse.show">
               <mat-icon class="sm-icon">shopping_cart</mat-icon>
               <span>My Cart</span>
               </button>
@@ -39,13 +39,13 @@
           </li>
 
           <li class="nav-item" fxShow="false" fxShow.gt-sm>
-            <a mat-raised-button color="accent" (click)="demoClicked()" class="btn btn-block" style="cursor: pointer;" *ngIf="!userLogged">LogIn</a>
+            <a mat-raised-button color="accent" (click)="demoClicked()" class="btn btn-block" style="cursor: pointer; padding: 0 25px;" *ngIf="!userLogged">LogIn</a>
             <div mat-menu-item *ngIf="userLogged">
               <button class="btn-block" mat-raised-button color="warn" (click)="onLogOut()" fxHide="false" fxHide.gt-sm >Logout</button>
             </div>
           </li>
           <li class="nav-item" fxHide="false" fxHide.gt-sm data-toggle="collapse" data-target=".navbar-collapse.show">
-            <a mat-raised-button color="accent" routerLink="/login" class="btn btn-block" style="cursor: pointer;" *ngIf="!userLogged">LogIn</a>
+            <a mat-raised-button color="accent" (click)="demoClicked()" class="btn btn-block" style="cursor: pointer;" *ngIf="!userLogged">LogIn</a>
             <div mat-menu-item *ngIf="userLogged">
               <button class="btn-block" mat-raised-button color="warn" (click)="onLogOut()" fxHide="false" fxHide.gt-sm >Logout</button>
             </div>

@@ -12,7 +12,7 @@ interface response_format
     price: number,
     quantity: number
     date: Date;
-    userId: string;
+    publicUid: string;
     category:string;
 }
 
@@ -48,7 +48,7 @@ export class ProductService {
           image : element1.image,
           price : element1.price,
           quantity : element1.quantity,
-          userId : element1.userId,
+          publicUid : element1.publicUid,
           category: element1.category,
           date : element1.date
         }

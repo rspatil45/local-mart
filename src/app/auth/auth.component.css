@@ -16,24 +16,43 @@ input.ng-invalid.ng-touched{
   background: rgb(0, 0, 0,0.75);
   z-index: 50;
 }
-.alert-box
+
+.alert-box-action{
+  text-align: right;
+
+}
+@media screen and (max-width: 900px) {
+  .alert-box
 {
   position:fixed;
-  top: 10vh;
-  left: 50vh;
-  right: 50vh;
- /* width: 100vw; */
+  top: 12rem;
+  left: 2%;
+  right: 2%;
+  max-width: 50rem;
+  min-width: 40rem;
   padding: 26px;
   background-color:cadetblue;
   z-index: 150;
   color: black;
   box-shadow: 0 2px 8px rgb(0, 0, 0, 0.26);
 }
-.alert-box-action{
-  text-align: right;
-
 }
-
+@media screen and (min-width: 900px) {
+  .alert-box
+{
+  position:fixed;
+  top: 12rem;
+  left: 30%;
+  right: 30%;
+  max-width: 50rem;
+  min-width: 40rem;
+  padding: 26px;
+  background-color:cadetblue;
+  z-index: 150;
+  color: black;
+  box-shadow: 0 2px 8px rgb(0, 0, 0, 0.26);
+}
+}
 .small-scr{
   position: fixed;
   top: 10vh;

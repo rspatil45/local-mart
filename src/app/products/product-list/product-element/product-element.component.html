@@ -5,22 +5,23 @@
     </div>
   </div>
   <div style="height: 10rem; text-align: center;" *ngIf="!show">
-    <img style="max-height: 100%;" mat-card-image src="{{product.image}}" alt="Photo of {{product.name}}"
+    <img style="max-height: 100%; border-radius: 10px 10px 0 0;" mat-card-image src="{{product.image}}" alt="Photo of {{product.name}}"
       (click)="onDetail()">
   </div>
   <mat-card-header>
-    <mat-card-title style="width: 7rem;">{{product.name}}</mat-card-title>
+    <mat-card-title style="width: 9rem;">{{product.name |titlecase}}</mat-card-title>
     <span></span>
     <span fxFlex
-      style="background-color: red; color: white; height: 25px; padding: 2px; text-align: center;">{{product.category}}</span>
-    <mat-card-subtitle>{{modified_date}}</mat-card-subtitle>
+      class="category"><strong>{{product.category}}</strong></span>
   </mat-card-header>
   <mat-card-content>
-    <p style="text-align: center;">{{modDescription}} </p>
+    <mat-card-subtitle style="margin-left: 1rem;">Date added : {{modified_date}}</mat-card-subtitle>
+    <p style="text-align: center;" *ngIf="false">{{modDescription}} </p>
   </mat-card-content>
+  <!-- <div  style="border-top: 1px solid grey;"></div> -->
   <mat-divider></mat-divider>
   <mat-card-actions>
-    <button mat-button style="cursor:default;">Rs {{product.price}}</button>
+    <button mat-button style="cursor:default;">{{product.price}} ₹</button>
     <span style="padding: 2px; text-align: right;" fxFlex fxLayoutAlign="flex-end center">
       <button mat-button *ngIf="count==0" (click)="onAddCart()">
         <mat-icon>add_shopping_cart</mat-icon>
@@ -29,7 +30,7 @@
       <div *ngIf="count>0" class="cart-button rounded-pill" style="background-color: red;" (click)="onRemoveCart()">
         <mat-icon>remove</mat-icon>
       </div>
-      <span *ngIf="count>0" style="padding: 1rem">{{count}}</span>
+      <p  *ngIf="count>0" style="padding: 7px 1rem 0 1rem; margin-top: 2px; position: relative;">{{count}}</p>
       <div *ngIf="count>0" class="cart-button rounded-pill" style="background-color: green;" (click)="onAddCart()">
         <mat-icon>add</mat-icon>
       </div>
