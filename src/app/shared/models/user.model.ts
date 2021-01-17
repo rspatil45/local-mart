@@ -4,6 +4,7 @@ export class User{
   email: string;
   firstname: string;
   // lastname: string;
-   role:string;
+  role:string;
   token: string;
+  id: number;
 }

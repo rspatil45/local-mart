@@ -12,8 +12,9 @@ interface response_format
     price: number,
     quantity: number
     date: Date;
-    publicUid: string;
+    user: any;
     category:string;
+    publicUid:string;
 }
 
 @Injectable({
@@ -41,18 +42,18 @@ export class ProductService {
      const queryParams = `?page=${currentPage}&limit=${postPerPage}`
      this.http.get<response_format[]>("http://localhost:8080/products" +queryParams).subscribe(element=>{
       element.forEach(element1=>{
-        const obj1 = {
-          id : element1.id,
-          name : element1.name,
-          description : element1.description,
-          image : element1.image,
-          price : element1.price,
-          quantity : element1.quantity,
-          publicUid : element1.publicUid,
-          category: element1.category,
-          date : element1.date
-        }
-        productList.push(obj1);
+        // const obj1 = {
+        //   id : element1.id,
+        //   name : element1.name,
+        //   description : element1.description,
+        //   image : element1.image,
+        //   price : element1.price,
+        //   quantity : element1.quantity,
+        //   user.publicUid : element1.publicUid,
+        //   category.name: element1.category,
+        //   date : element1.date
+        // }
+        productList.push(element1);
       })
 
     })
@@ -97,10 +98,12 @@ export class ProductService {
   {
     const id = `${idx}`;
     return this.http.delete<boolean>("http://localhost:8080/products/"+id+"/"+token);
-
   }
   fetchCount(){
-     return this.http.get("http://localhost:8080/products/count")
+     return this.http.get("http://localhost:8080/products/count/all");
+  }
+  fetchCountByCategory(category:string){
+    return this.http.get("http://localhost:8080/products/count/"+category);
   }
   setCategory(category: string)
   {

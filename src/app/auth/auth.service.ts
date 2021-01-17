@@ -4,11 +4,11 @@ import {User} from '../shared/models/user.model';
 import { Subject } from 'rxjs';
 
 interface response_format{
-  userId : number,
+  publicUid : number,
   firstname: string,
   lastname: string,
   email: string,
-
+  id: number
 }
 
 @Injectable({

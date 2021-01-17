@@ -34,9 +34,13 @@ export class ProductListComponent implements OnInit {
       this.totalPosts = +count;
     })
 
+
     this.proService.categoryChanged.subscribe(
       (category)=>{
         this.category = category;
+        this.proService.fetchCountByCategory(category).subscribe(count=>{
+          this.totalPosts = +count;//plus sign to insure it is inteer
+        });
         if(this.category == "all")
         this.proService.fetchProducts(this.postPerPage,1);
         else

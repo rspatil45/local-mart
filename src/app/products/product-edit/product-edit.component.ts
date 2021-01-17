@@ -42,7 +42,6 @@ export class ProductEditComponent implements OnInit {
 
   onSetForm(){
     //console.log(this.product);
-    //this.form.value.item_name = this.product.name;
     this.form.controls['item_name'].patchValue(this.product.name);
     this.form.controls['image'].patchValue(this.product.image);
     this.form.controls['category'].patchValue(this.product.category);
@@ -65,8 +64,9 @@ export class ProductEditComponent implements OnInit {
         price: form.value.price,
         quantity : form.value.quantity,
         category : form.value.category,
-        publicUid : this.authService.currentUser.publicUid,
-        token: this.authService.currentUser.token
+        user: {id : this.authService.currentUser.id},
+        token: this.authService.currentUser.token,
+        publicUid: this.authService.currentUser.publicUid
       }
       this.proService.addProduct(product).subscribe(item=>{
         this.success_message = "product added successfully";
@@ -91,6 +91,7 @@ export class ProductEditComponent implements OnInit {
       }
 
       this.proService.updateProduct(productToUpdate).subscribe(item=>{
+        console.log(item)
         this.success_message = "product updated successfully";
         form.reset();
       },error=>{

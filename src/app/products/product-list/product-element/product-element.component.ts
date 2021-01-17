@@ -19,6 +19,7 @@ export class ProductElementComponent implements OnInit {
   show = true;
   count = 0;
   modDescription="";
+
   modified_date=null;
   constructor(private cartService : CartService, private _snackBar: MatSnackBar,
     private route: ActivatedRoute,
