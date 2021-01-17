@@ -110,6 +110,9 @@ export class ProductService {
     this.category = category;
     this.categoryChanged.next(category);
   }
+  searchProduct(searchKeyword:string){
+    return this.http.get<Product[]>("http://localhost:8080/products/search?keyword="+searchKeyword);
+  }
 
 
   constructor(private http: HttpClient) {

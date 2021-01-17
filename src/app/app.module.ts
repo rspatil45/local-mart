@@ -36,6 +36,7 @@ import { from } from 'rxjs';
 import { LogOutconfirmationComponent } from './shared/dialogs/log-outconfirmation/log-outconfirmation.component';
 import { AuthSmallComponent } from './auth/auth-small/auth-small.component';
 import { AuthGuard } from './auth/auth.guard';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { AuthGuard } from './auth/auth.guard';
     AddProductComponent,
     LogOutconfirmationComponent,
     AuthSmallComponent,
+    SearchComponent,
 
 
   ],
