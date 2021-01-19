@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingComponent} from '../../../shared/loading/loading.component';
 import { DatePipe, formatDate } from '@angular/common';
+import { HomepageComponent } from 'src/app/homepage/homepage.component';
 
 @Component({
   selector: 'app-product-element',
@@ -47,7 +48,7 @@ export class ProductElementComponent implements OnInit {
     this._snackBar.open("Removed one item!","successfully",{duration:1000});
   }
   onDetail(){
-    this.router.navigate([this.product.id],{relativeTo:this.route});
+    this.router.navigate(["/products/"+this.product.id]);
   }
 
 }

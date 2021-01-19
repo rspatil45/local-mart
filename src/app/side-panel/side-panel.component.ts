@@ -15,7 +15,7 @@ export class SidePanelComponent implements OnInit {
     setTimeout(()=>{
     this.proService.setCategory(ctgr);
    },10);
-   this.router.navigate(['../']);
+   //this.router.navigate(['../']);
 
     //console.log(ctgr);
   }

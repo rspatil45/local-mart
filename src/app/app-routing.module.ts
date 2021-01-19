@@ -9,10 +9,12 @@ import { Cart } from './shared/models/cart.model';
 import { CartComponent } from './products/cart/cart.component';
 import { AuthSmallComponent } from './auth/auth-small/auth-small.component';
 import { AuthGuard } from './auth/auth.guard';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component:HomepageComponent},
   { path: 'products', component: ProductsComponent,
     children: [
       { path: '', component: ProductListComponent, pathMatch: 'full'},

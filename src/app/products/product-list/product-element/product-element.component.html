@@ -1,11 +1,11 @@
-<mat-card class="main-card">
+<mat-card class="main-card" style="border-radius: 10px 10px 0 0;">
   <div mat-card-image *ngIf="show">
     <div style="margin: 3rem 6rem;">
       <app-loading></app-loading>
     </div>
   </div>
   <div style="height: 10rem; text-align: center;" *ngIf="!show">
-    <img style="max-height: 100%; border-radius: 10px 10px 0 0;" mat-card-image src="{{product.image}}" alt="Photo of {{product.name}}"
+    <img style="max-height: 100%; " mat-card-image src="{{product.image}}" alt="Photo of {{product.name}}"
       (click)="onDetail()">
   </div>
   <mat-card-header>

@@ -1,0 +1,66 @@
+<div class="row mainpage" >
+  <div class="col-sx-12 col-sm-12 col-md-12 part1">
+    <app-search style="padding: 1rem 0 1rem 1rem ; "></app-search>
+  </div>
+  <div *ngIf="latest_products" class="col-md-12 part2" style="padding: 1rem;">
+    <app-part1 [product]="latest_products"></app-part1>
+  </div>
+  <!-- ----------------------------------------------------------------- -->
+  <div class="col-md-12 part1">
+    <section id="features">
+      <div class="row-2 row">
+        <div class="col-lg-4">
+          <em class="feature-icon fas fa-check-circle fa-3x"></em>
+          <h3>Easy to use.</h3>
+          <p>So easy to use, even your child could use it.</p>
+        </div>
+        <div class="col-lg-4">
+          <em class="fas fa-bullseye fa-3x feature-icon"></em>
+          <h3>Elite Clientele</h3>
+          <p>We have all the products, the greatest products.</p>
+        </div>
+        <div class="col-lg-4">
+          <em class="fas fa-heart fa-3x feature-icon"></em>
+          <h3>Guaranteed quality.</h3>
+          <p>Find the original products, with great quality.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- ----------------------------------------------------------------------------------- -->
+  <div class="col-md-12 part2">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="testo">
+          <div class="carousel-item active">
+            <h3 class="testimonial-text">I no longer have to search lot of websites. I can get latest and best product on local mart.</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Katy_Perry_and_Greg_%2847870635411%29_%28cropped%29.jpg" class="  test-img" alt="testomonial-img1">
+            <em class="text-em">Katy Perry, New York</em>
+          </div>
+          <div class="carousel-item">
+            <h3 class="testimonial-text">Local mart is good initiative. It will benificial for both farmer and customer.</h3>
+            <img src="https://avatars1.githubusercontent.com/u/50131992?s=460&u=0b23be4aeef4a73d37f7657a00def910cdf1c4ae&v=4" class="  test-img " alt="testomonial-img2">
+            <em class="text-em">Rahul Patil, Dharashiv</em>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <!-- ------------------------------------------------------------------------------ -->
+  </div>
+  <div class="col-md-12 part1">
+    <div id="cta">
+      <h2 class="cta-head">Get the best best deal, Today.</h2>
+      <hr>
+      <button type="button " class=" btn btn-lg btn-dark"><em class=" btn-download fab fa-apple"></em>Download</button>
+      <button type="button " class=" btn btn-lg btn-light"><em
+          class="btn-download fab fa-google-play"></em>Download</button>
+      </div>
+  </div>

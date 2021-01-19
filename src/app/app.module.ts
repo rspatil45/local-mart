@@ -37,6 +37,9 @@ import { LogOutconfirmationComponent } from './shared/dialogs/log-outconfirmatio
 import { AuthSmallComponent } from './auth/auth-small/auth-small.component';
 import { AuthGuard } from './auth/auth.guard';
 import { SearchComponent } from './search/search.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { Part1Component } from './homepage/part1/part1.component';
+import { PartElementComponent } from './homepage/part1/part-element/part-element.component';
 
 
 @NgModule({
@@ -57,6 +60,9 @@ import { SearchComponent } from './search/search.component';
     LogOutconfirmationComponent,
     AuthSmallComponent,
     SearchComponent,
+    HomepageComponent,
+    Part1Component,
+    PartElementComponent,
 
 
   ],

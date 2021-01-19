@@ -1,0 +1,79 @@
+.mainpage{
+  margin: 0 6%;
+  min-width: 21rem;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+.part1{
+  background-color: rgba(0, 0, 128, 0.300);
+}
+.part2{
+  background-color: rgba(0, 0, 128, 0.692);
+}
+#testimonials{
+  text-align: center;
+  padding: 5rem 2rem;
+}
+.testimonial-text {
+  font-size: 3rem;
+  line-height: 1.5;
+  color: whitesmoke;
+
+
+}
+.testo{
+  padding: 0 10rem;
+}
+#features{
+  margin: 0 0 2rem 0;
+  line-height: 1.5;
+  position: relative;
+  padding-top: 4rem;
+  z-index: 1;
+}
+.feature-icon{
+  padding-bottom: 1rem;
+  color: #ff5733;
+}
+.feature-icon:hover{
+  color: #d8345f;
+}
+.sec-i{
+  padding: 1rem 0;
+}
+
+.test-img{
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin: 20px;
+
+}
+.text-em{
+   color:whitesmoke;
+}
+.press-img{
+  width: 200px;
+  margin: 2rem 3% 5rem 3%;
+}
+
+
+.btn{
+  margin-right: 1.2rem;
+  margin-bottom: 2rem;
+}
+.btn-download{
+  size:5x;
+  padding-right: 0.8rem;
+}
+
+#cta{
+  text-align: center;
+  padding: 5%;
+}
+.cta-head{
+  font-size: 3rem;
+  color: whitesmoke;
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,19 @@
+<mat-card class="main-card" style="border-radius: 10px 10px 0 0;">
+  <div style="height: 10rem; text-align: center;">
+    <img style="height: 100%; " mat-card-image src="{{product.image}}" alt="Photo of {{product.name}}"
+      (click)="onDetail()">
+  </div>
+  <mat-card-header>
+    <mat-card-title>{{product.name |titlecase}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{product.description}}</p>
+    <p mat-button style="cursor:default;text-align: left; color: red;">Best price: {{product.price}} ₹</p>
+  </mat-card-content>
+  <mat-card-actions>
+
+    <span style="padding: 2px; text-align: right;" fxFlex fxLayoutAlign="flex-end center">
+    </span>
+
+  </mat-card-actions>
+</mat-card>

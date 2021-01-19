@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg" style="color: white;padding: 0 6%; height: 4rem; ">
 
-  <div class="navbar-brand" routerLink="products" style="cursor: pointer;user-select: none;font-size: 25px;">Local Mart</div>
+  <div class="navbar-brand" routerLink="products" style="cursor: pointer;user-select: none;font-size: 25px;">Local Mart
+  </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,13 +9,12 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-      <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <button mat-button (click)="onCartClick()" style="margin-right: 1rem;" *ngIf="!userLogged" fxShow="false"
-          fxShow.gt-sm data-toggle="collapse" data-target=".navbar-collapse.show">
-          <mat-icon>shopping_cart</mat-icon>My Cart
-        </button>
+        <div mat-button mat-menu-item (click)="onCartClick()" fxShow="false" fxShow.gt-sm data-toggle="collapse"
+          data-target=".navbar-collapse.show" style="color: white;">
+          <mat-icon style="color: white; padding-top: 0.7rem;">add_shopping_cart</mat-icon>
+      </div>
       </li>
       <li class="nav-item" fxHide="false" fxHide.gt-sm>
         <button mat-menu-item routerLink="products" class="sm-menu" data-toggle="collapse"
@@ -23,14 +23,15 @@
           <span>Home</span>
         </button>
         <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
       </li>
-
       <li class="nav-item" fxHide="false" fxHide.gt-sm>
-        <button mat-menu-item (click)="onCartClick()" class="sm-menu" data-toggle="collapse"
+        <div mat-menu-item (click)="onCartClick()" class="sm-menu" data-toggle="collapse"
           data-target=".navbar-collapse.show">
           <mat-icon class="sm-icon">shopping_cart</mat-icon>
           <span>My Cart</span>
-        </button>
+      </div>
+        <mat-divider></mat-divider>
         <mat-divider></mat-divider>
       </li>
       <li class="nav-item" fxHide="false" fxHide.gt-sm *ngIf="userLogged">
@@ -38,8 +39,9 @@
           data-target=".navbar-collapse.show">
           <mat-icon class="sm-icon">add_circle</mat-icon>
           <span>Add Product</span>
-          <mat-divider></mat-divider>
         </button>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
       </li>
       <li class="nav-item" fxHide="false" fxHide.gt-sm>
         <button mat-menu-item class="sm-menu" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -47,43 +49,46 @@
           <span>Contact</span>
         </button>
         <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
       </li>
-
-      <li class="nav-item" fxShow="false" fxShow.gt-sm>
-        <a mat-raised-button color="accent" (click)="demoClicked()" class="btn btn-block"
-          style="cursor: pointer; padding: 0 25px;" *ngIf="!userLogged">LogIn</a>
-        <div mat-menu-item *ngIf="userLogged">
-          <button class="btn-block" mat-raised-button color="warn" (click)="onLogOut()" fxHide="false"
-            fxHide.gt-sm>Logout</button>
-        </div>
+      <!-- login for large screen -->
+      <li fxShow="false" fxShow.gt-sm style="margin-top: 0.45rem;">
+          <button mat-raised-button color="accent" (click)="demoClicked()"
+            style="cursor: pointer; padding: 0 35px;" *ngIf="!userLogged">LogIn</button>
       </li>
+      <!-- for small screen login and logout options -->
       <li class="nav-item" fxHide="false" fxHide.gt-sm data-toggle="collapse" data-target=".navbar-collapse.show">
-        <a mat-raised-button color="accent" (click)="demoClicked()" class="btn btn-block" style="cursor: pointer;"
+        <a mat-raised-button color="accent" (click)="demoClicked()" class="btn-block" style="cursor: pointer;"
           *ngIf="!userLogged">LogIn</a>
-        <div mat-menu-item *ngIf="userLogged">
-          <button class="btn-block" mat-raised-button color="warn" (click)="onLogOut()" fxHide="false"
-            fxHide.gt-sm>Logout</button>
-        </div>
+        <a  *ngIf="userLogged" class="btn-block" mat-raised-button color="accent" (click)="onLogOut()" fxHide="false"
+            fxHide.gt-sm>Logout</a>
       </li>
 
+      <!-- usermenu , menu items are given below -->
       <li class="nav-item" fxShow="false" fxShow.gt-sm>
         <div [mat-menu-trigger-for]="usermenu" *ngIf="userLogged">
-          <div *ngIf="userLogged" mat-menu-item style="padding: 0 0 0 1rem; color: white;">
+          <div *ngIf="userLogged" mat-menu-item style=" color: white;">
             <mat-icon style="color: white;">account_circle</mat-icon>
             <span><strong>{{userLogged.firstname }}</strong></span>
           </div>
         </div>
       </li>
-
     </ul>
   </div>
 </nav>
 
+
+
+
+
+
+
+<!-- menu bar after user logged in -->
 <mat-menu #usermenu="matMenu" class="usermenu">
-  <button mat-menu-item (click)="onCartClick()">
+  <!-- <button mat-menu-item (click)="onCartClick()">
     <mat-icon>shopping_cart</mat-icon>
     <span>My Cart</span>
-  </button>
+  </button> -->
   <button routerLink="products/new" mat-menu-item>
     <mat-icon>add_circle</mat-icon>
     <span>Add Product</span>

@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-md-10">
-    <input type="text" class="form-control" name="search" placeholder="search products" [(ngModel)]="searchKeyword">
+  <div class="col-sm-10" style="margin-bottom: 1rem;">
+    <input type="text" class="form-control" name="search" placeholder="What are you looking for?" [(ngModel)]="searchKeyword">
   </div>
-  <div class="col-md-2">
-    <button class="btn btn-primary btn-block" (click)="OnSearchSomething()">Search</button>
+  <div class="col-sm-2" style="margin-bottom: 1rem;">
+    <button mat-raised-button class="btn-block md-accent md-hue-1 btn-success" (click)="OnSearchSomething()" style="min-width: 6rem;"><mat-icon style="padding-right: 1rem;">search</mat-icon>Search</button>
   </div>
 </div>
