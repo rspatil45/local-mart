@@ -1,5 +1,5 @@
-<div style="margin: 0 5%; min-height: 78vh;">
-
+<div style="margin: 0 5%;">
+  <app-loading-process *ngIf="loading"></app-loading-process>
   <div *ngIf="cart_list.length<1;">
     <div class="row">
       <div class="col-md-6" style="text-align: center; margin-bottom: 1rem;  ">
@@ -14,7 +14,7 @@
         <div style="margin: 2rem">
           <h2>The total amount of</h2>
           <hr>
-          <button class="tn btn-primary btn-block">GO TO CHECKOUT</button>
+          <button class="tn btn-primary btn-block" (click)="onCheckOut()">GO TO CHECKOUT</button>
         </div>
       </div>
     </div>
@@ -121,7 +121,7 @@
           <h2>The total amount is : {{grand_total}}</h2>
 
           <hr>
-          <button class="tn btn-primary btn-block">GO TO CHECKOUT</button>
+          <button class="tn btn-primary btn-block" (click)="onCheckOut()">GO TO CHECKOUT</button>
         </div>
       </div>
     </div>

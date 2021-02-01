@@ -16,10 +16,9 @@ interface response_format{
 })
 export class AuthService {
 
-  currentUser:User = null;
+  currentUser:User=null;
   userChanged = new Subject<User>();
   constructor(private http: HttpClient) { }
-
 
    signUp(email: string, password: string, firstname: string, lastname: string){
     return this.http.post<response_format>("http://localhost:8080/users/signup",{
@@ -31,7 +30,6 @@ export class AuthService {
   }
   autoLogIn(){
     const userData:User = JSON.parse(localStorage.getItem('userData'));
-
      if(!userData)
        return false;
 
@@ -47,11 +45,13 @@ export class AuthService {
   }
   userLoggedIn(user){
     this.currentUser = user;
-    console.log(user);
     localStorage.setItem('userData',JSON.stringify(user));
     this.userChanged.next(this.currentUser);
-
   }
 
+  getUser(){
+    this.autoLogIn();
+    return this.currentUser;
+  }
 
 }

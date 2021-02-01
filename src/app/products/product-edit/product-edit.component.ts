@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/shared/product.service';
 import { Product } from 'src/app/shared/models/product.model';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-product-edit',
@@ -20,7 +21,7 @@ export class ProductEditComponent implements OnInit {
   @ViewChild('f') form:NgForm;
   constructor(private proService:ProductService ,private http: HttpClient,
     private authService : AuthService, private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,private _location: Location) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
@@ -37,7 +38,7 @@ export class ProductEditComponent implements OnInit {
     })
   }
   onCancel(){
-    this.router.navigate(['../']);
+    this._location.back();
   }
 
   onSetForm(){
@@ -53,10 +54,15 @@ export class ProductEditComponent implements OnInit {
 
   onSubmit(form: NgForm){
     //console.log(form.value.category);
+    if(!this.form.valid)
+    {
+      this.success_message = null;
+      this.error_message = "please, properly fill the details"
+      return;
+    }
     if(!this.editMode)
     {
       //not edit mode means we are adding new product
-
       var product = {
         name : form.value.item_name,
         image : form.value.image,
@@ -69,9 +75,11 @@ export class ProductEditComponent implements OnInit {
         publicUid: this.authService.currentUser.publicUid
       }
       this.proService.addProduct(product).subscribe(item=>{
+        this.error_message = null;
         this.success_message = "product added successfully";
           form.reset();
         },error=>{
+          this.success_message = null;
          this.error_message=error.error.message;
         }
       )
@@ -83,18 +91,21 @@ export class ProductEditComponent implements OnInit {
         id :this.product.id,
         name : form.value.item_name,
         image : form.value.image,
-         description: form.value.description,
+        description: form.value.description,
         price: form.value.price,
         quantity : form.value.quantity,
+        user: {id : this.authService.currentUser.id},
         category: form.value.category,
         token : this.authService.currentUser.token
       }
 
       this.proService.updateProduct(productToUpdate).subscribe(item=>{
-        console.log(item)
+//        console.log(item)
+        this.error_message = null;
         this.success_message = "product updated successfully";
         form.reset();
       },error=>{
+        this.success_message = null;
       this.error_message=error.error.message;
       }
       )

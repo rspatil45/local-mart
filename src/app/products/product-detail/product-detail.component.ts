@@ -26,7 +26,7 @@ export class ProductDetailComponent implements OnInit {
     private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.user = this.authService.currentUser;
+    this.user = this.authService.getUser();
     this.subscription = this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.proService.getProduct(this.id).subscribe(item => {
@@ -55,12 +55,11 @@ export class ProductDetailComponent implements OnInit {
   onUpdate() {
 
     const link = "products/edit/" + this.product.id;
-
     this.router.navigate([link]);
   }
 
   onDelete() {
-    this.proService.deleteProduct(this.id, this.user.token).subscribe(value => {
+    this.proService.deleteProduct(this.id).subscribe(value => {
       if (value) {
         this.router.navigate(['/products']);
       }
@@ -71,10 +70,10 @@ export class ProductDetailComponent implements OnInit {
 
   getAccess() {
     if (this.user) {
-      if (this.user.publicUid == this.product.user.publicUid) {
-        this.haveAccess = true;
-        // console.log(this.user.userId, this.product.userId);
-      }
+      // if (this.user.publicUid == this.product.user.publicUid) {
+      //   this.haveAccess = true;
+      //   // console.log(this.user.userId, this.product.userId);
+      // }
       if (this.user.role == "admin") {
         this.haveAccess = true;
       }

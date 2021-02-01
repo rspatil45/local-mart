@@ -12,13 +12,13 @@ import { User } from '../shared/models/user.model';
 })
 export class NavBarComponent implements OnInit {
   userLogged:User;
-
   constructor(private loginService: LoginService, public authService:AuthService,
     private route : ActivatedRoute, private dialog: MatDialog,
     private router : Router) { }
 
   LoginButtonClicked  = new EventEmitter<boolean>()
   ngOnInit(): void {
+    this.userLogged = this.authService.getUser();
     this.authService.userChanged.subscribe((user)=>{
       this.userLogged = user;
     })
@@ -48,11 +48,9 @@ export class NavBarComponent implements OnInit {
       if(diaglogOutput)
       {
         this.authService.userLoggedIn(null);
-        this.router.navigate(["products"],{relativeTo: this.route});
+        window.location.reload();
+        // this.router.navigate(["products"],{relativeTo: this.route});
       }
     });
-
-
-
   }
 }

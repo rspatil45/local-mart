@@ -1,8 +1,11 @@
 .mainpage{
   margin: 0 6%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   min-width: 21rem;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  border-radius: 15px;
 }
 .part1{
   background-color: rgba(0, 0, 128, 0.300);

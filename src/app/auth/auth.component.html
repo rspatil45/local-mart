@@ -1,12 +1,13 @@
 <div class="back-drop" (click)="onClose()"></div>
-<div class="alert-box" style="border-radius: 14px;">
+<div class="alert-box" style="border-radius: 20px;">
 
-  <div class="row" style="padding:2rem; border: white solid 2px; margin: 0.5rem; border-radius: 7px;">
+  <div class="row page-box" >
     <div class="col-md-12">
       <form (ngSubmit)="onSubmit(f)" ngForm #f="ngForm">
-        <div *ngIf="signupMsg_sucess" class="signupMsg" style=" color: green;"><strong>{{signupMsg_sucess}}</strong> </div>
-        <div *ngIf="signupMsg_error" class="signupMsg" style="color: red;"><strong>{{signupMsg_error}}</strong> </div>
-        <div class="loginInvalid" *ngIf="loginMsg"><strong>{{loginMsg}}</strong></div>
+        <div *ngIf="signupMsg_sucess" class="success" >{{signupMsg_sucess}}</div>
+        <div *ngIf="signupMsg_error" class="error">{{signupMsg_error}}</div>
+        <div class="error" *ngIf="loginMsg">{{loginMsg}}</div>
+
         <label for="email"><strong>Email Address</strong></label>
         <div class="inputContainer">
           <input type="text" class="form-control" ngModel email required name="email" id="email"
@@ -26,7 +27,6 @@
               <input type="text" class="form-control" ngModel required name="lastname" placeholder="ex Patil"
                 id="lastname">
             </div>
-
           </div>
         </div>
 
@@ -39,7 +39,7 @@
             id="confirm_password">
           <span style="color: red"><br><strong>Note: All fields are mandatory</strong></span>
         </div>
-        <hr>
+        <hr style="height: 2px; color: rgba(0, 0, 128, 0.424);">
         <div class="row">
           <div class="col-sm-6">
             <button mat-button mat-raised-button type="submit" style="margin-right: 1rem;">{{userExists ? 'Login'

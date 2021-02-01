@@ -13,13 +13,13 @@ import { AuthService } from '../auth/auth.service';
 export class ProductsComponent implements OnInit {
 
 
-  constructor(private authService:AuthService) {
+  constructor() {
 
   }
 
 
   ngOnInit(): void {
-    this.authService.autoLogIn();
+
   }
 
 

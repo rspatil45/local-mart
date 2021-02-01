@@ -18,9 +18,9 @@ export class SearchComponent implements OnInit {
 
   OnSearchSomething(){
     this.proService.searchkeyword = this.searchKeyword;
-    this.router.navigate(['/products']);
     if(!this.searchKeyword)
-      return
+      return;
+    this.router.navigate(['/products']);
     this.proService.searchProduct(this.searchKeyword).subscribe(
       searchResult=>{
         this.proService.productChanged.next(searchResult);

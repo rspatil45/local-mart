@@ -13,10 +13,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CartComponent implements OnInit{
   private subscription: Subscription;
+  loading = false;
   public cart_list: Cart[];
   grand_total=0;
   constructor(private cartService: CartService, private _snackBar: MatSnackBar,
-    private router: Router, private route: ActivatedRoute) {
+    private router: Router, private route: ActivatedRoute, ) {
     this.cart_list = this.cartService.getCart();
     this.getGrandTotal();
    }
@@ -26,7 +27,6 @@ export class CartComponent implements OnInit{
       this.cart_list = carts;
       this.grand_total=0;
       this.getGrandTotal();
-
     });
   }
   onDeleteItem(index: number){
@@ -52,6 +52,24 @@ export class CartComponent implements OnInit{
   {
     const url = "/products/"+index.toString();
     this.router.navigate([url]);
+  }
+  onCheckOut(){
+    if(this.cart_list.length <= 0)
+    {
+      window.alert("Please shop something before checkout.");
+    }
+    else{
+      this.loading = true;
+      this.cartService.verifyOrder().subscribe(success=>{
+        console.log(success);
+        this.router.navigate(["/verify"]);
+        this.loading = false;
+      },error=>{
+        console.log(error);
+        this.loading = false;
+      })
+    }
+
   }
 
 }

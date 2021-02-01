@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12" *ngIf="products">
+    <table class="table">
+      <caption style="text-align: center;">My Products List</caption>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Category</th>
+          <th scope="col">Price</th>
+          <th scope="col">Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>
+           {{product.name}}
+          </td>
+          <td>{{product.category}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.date | date:'yyyy/MM/dd'}}</td>
+          <td>
+            <button  class="btn btn-primary btn-sm" style="margin-right: 7px;" (click)="onEdit(product)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button  class="btn btn-danger btn-sm" (click)="onDelete(product)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="loading">
+         <td colspan="5" style="text-align: center;">Fetching Employees</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-12"  *ngIf="!products">
+    <p>don't have any product</p>
+  </div>
+</div>

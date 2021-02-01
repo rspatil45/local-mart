@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from './models/product.model';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth/auth.service';
 interface response_format {
 
   id: number,
@@ -27,7 +28,7 @@ export class ProductService {
   categoryChanged = new Subject<string>();
   private products: Product[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private authService: AuthService) { }
 
   fetchProducts(postPerPage: number, currentPage: number) {
     const productList: Product[] = [];
@@ -74,7 +75,8 @@ export class ProductService {
     return this.http.post(this.back_url + "/products/new", product);
   }
 
-  deleteProduct(idx: number, token: string) {
+  deleteProduct(idx: number) {
+    const token = this.authService.currentUser.token;
     const id = `${idx}`;
     return this.http.delete<boolean>(this.back_url + "/products/" + id + "/" + token);
   }
@@ -99,5 +101,6 @@ export class ProductService {
   fetchLatestProduct(){
     return this.http.get<Product[]>(this.back_url+"/products");
   }
+
 
 }

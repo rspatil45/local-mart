@@ -10,6 +10,8 @@ import { CartComponent } from './products/cart/cart.component';
 import { AuthSmallComponent } from './auth/auth-small/auth-small.component';
 import { AuthGuard } from './auth/auth.guard';
 import { HomepageComponent } from './homepage/homepage.component';
+import { UserProductsComponent } from './products/user-products/user-products.component';
+import { VerifyComponent } from './products/cart/verify/verify.component';
 
 
 const routes: Routes = [
@@ -19,13 +21,14 @@ const routes: Routes = [
     children: [
       { path: '', component: ProductListComponent, pathMatch: 'full'},
       { path: 'new', component: ProductEditComponent,canActivate: [AuthGuard] },
+      { path: 'user_products', component: UserProductsComponent, canActivate:[AuthGuard]},
       { path: ':id', component: ProductDetailComponent },
       { path: 'edit/:editId', component: ProductEditComponent,canActivate: [AuthGuard]}
-
     ]
   },
   { path: 'auth', component: AuthComponent},
   { path: 'cart', component: CartComponent,canActivate:[AuthGuard]},
+  {path: 'verify', component: VerifyComponent},
   { path: 'login', component: AuthSmallComponent},
   { path: '**', component: ProductsComponent}
 

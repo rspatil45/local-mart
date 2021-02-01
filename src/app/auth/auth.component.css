@@ -1,5 +1,5 @@
 input.ng-invalid.ng-touched{
-  border: 2px solid red;
+  border: 2px solid rgba(255, 0, 0, 0.342);
 }
 .response{
   background-color: green;
@@ -13,7 +13,7 @@ input.ng-invalid.ng-touched{
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgb(0, 0, 0,0.75);
+  background: rgba(0, 0, 0, 0.746);
   z-index: 50;
 }
 
@@ -53,29 +53,35 @@ input.ng-invalid.ng-touched{
   box-shadow: 0 2px 8px rgb(0, 0, 0, 0.26);
 }
 }
-.small-scr{
+/* .small-scr{
   position: fixed;
   top: 10vh;
   left: 50vw;
   right: 50vh;
- /* width: 100vw; */
   padding: 26px;
   background-color: black;
   z-index: 150;
   color: white;
   box-shadow: 0 2px 8px rgb(0, 0, 0, 0.26);
-}
-.loginInvalid{
+} */
+.success{
+  margin-bottom: 1rem;
 
-  color:red;
-  margin-bottom: 1rem;
-  font-size: 20px;
+  padding: 0.5rem;
+  color: green;
   text-align: center;
+  border: solid green 1px;
+  background-color: rgba(0, 128, 0, 0.301);
+  font-size: 17px;
 }
-.signupMsg{
+.error{
   margin-bottom: 1rem;
-  font-size: 20px;
+  padding: 0.5rem;
+  color: red;
   text-align: center;
+  border: solid red 1px;
+  background-color: rgba(255, 0, 0, 0.301);
+  font-size: 17px;
 }
 .inputContainer i {
   position: absolute;
@@ -89,4 +95,13 @@ input.ng-invalid.ng-touched{
   color: rgb(49, 0, 128);
   width: 70px;
   text-align: left;
+}
+.page-box{
+  padding:2rem;
+  margin: 0.5rem;
+  border-radius: 10px;
+  border-top: navy solid 2px;
+  border-bottom: navy solid 2px;
+  border-left: navy dashed 2px;
+  border-right: navy dashed 2px;
 }

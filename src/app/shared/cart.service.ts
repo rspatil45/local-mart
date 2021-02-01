@@ -2,11 +2,16 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Product } from './models/product.model';
 import { Cart } from './models/cart.model';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  constructor(private http:HttpClient, private authService: AuthService){
+
+  }
   cartChanged = new Subject<Cart[]>();
   cart_list: Cart[] = [];
 
@@ -26,6 +31,7 @@ export class CartService {
 
     this.cartChanged.next(this.cart_list.slice());
   }
+
   deleteItem(id: number) {
    let index  = 0;
    for(let item of this.cart_list)
@@ -48,4 +54,14 @@ export class CartService {
 
     this.cartChanged.next(this.cart_list.slice());
   }
+
+  verifyOrder(){
+    const user = this.authService.currentUser;
+    return this.http.put("http://localhost:8080/users//verify-order",user);
+  }
+  placeOrder(cart:Cart[]){
+    const user = this.authService.currentUser;
+    return this.http.post("http://localhost:8080/users/place-order",{user,cart});
+  }
+
 }

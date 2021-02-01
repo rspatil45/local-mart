@@ -40,6 +40,11 @@ import { SearchComponent } from './search/search.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { Part1Component } from './homepage/part1/part1.component';
 import { PartElementComponent } from './homepage/part1/part-element/part-element.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { AdminSectionComponent } from './admin-section/admin-section.component';
+import { UserProductsComponent } from './products/user-products/user-products.component';
+import { VerifyComponent } from './products/cart/verify/verify.component';
+import { LoadingProcessComponent } from './shared/loading-process/loading-process.component';
 
 
 @NgModule({
@@ -63,6 +68,11 @@ import { PartElementComponent } from './homepage/part1/part-element/part-element
     HomepageComponent,
     Part1Component,
     PartElementComponent,
+    ReviewsComponent,
+    AdminSectionComponent,
+    UserProductsComponent,
+    VerifyComponent,
+    LoadingProcessComponent,
 
 
   ],

@@ -20,7 +20,7 @@ export class PartElementComponent implements OnInit {
   ngOnInit(): void {
     setInterval(()=>{
       this.show = false;
-    },1000);
+    },3000);
     this.index = this.product.id;
   }
 
