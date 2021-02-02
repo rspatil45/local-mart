@@ -59,9 +59,9 @@ export class CartService {
     const user = this.authService.currentUser;
     return this.http.put("http://localhost:8080/users//verify-order",user);
   }
-  placeOrder(cart:Cart[]){
+  placeOrder(cart:Cart[], code: string){
     const user = this.authService.currentUser;
-    return this.http.post("http://localhost:8080/users/place-order",{user,cart});
+    return this.http.post("http://localhost:8080/users/place-order",{user,cart,code},);
   }
 
 }

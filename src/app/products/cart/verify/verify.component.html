@@ -1,9 +1,11 @@
 <app-loading-process *ngIf="loading"></app-loading-process>
-<div style="height: 20vh;"></div>
+<div style="height: 20vh;">
+<button class="btn btn-danger" routerLink="../">Cancel</button>
+</div>
 <div style="text-align: center; background-color: rgba(0, 0, 0, 0.212); padding: 5rem 0;">
   <p style="font-size: 20px;">Please enter verification code sent to your registered email.</p>
-  <input type="text" placeholder="Enter verification code" size="16rem">
+  <input type="text" placeholder="Enter verification code" [(ngModel)]="code_to_verify" size="16rem">
   <br>
   <br>
-  <button class="btn btn-primary" style="padding: 0.3rem 1rem;" (click)="onVerification()">Submit</button>
+  <button class="btn btn-primary" style="padding: 0.3rem 1rem;" (click)="onVerification(code_to_verify)">Submit</button>
 </div>
